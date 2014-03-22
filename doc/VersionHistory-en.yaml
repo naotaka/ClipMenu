@@ -1,0 +1,120 @@
+
+0.4.3:
+  date: 2009-11-09
+  changes:
+    fixed:
+    - Fix a bug where you couldn't edit snippets in version 0.4.2.
+
+0.4.2:
+  date: 2009-11-08
+  changes:
+    new:
+    - Add a feature to exclude applications from checking the clipboard.
+    - Add a feature to export clipboard history as text file(s).
+    - Add an option to check for pre-releases.
+    changed:
+    - Change how to manage clipboard history.
+    - Change how to check for duplicate of history items.
+    - Change how to sort history order.
+    - Change how to make thumbnail image in the menu.
+    - Change initialization process.
+    fixed:
+    - Fix a issue that always show status bar icon whether turned on/off.
+
+0.4.1:
+  date: 2009-10-21
+  changes:
+    fixed:
+    - Fix a bug that causes force pasting regardless of the preference.
+
+0.4.0:
+  date: 2009-10-20
+  changes:
+    new:
+    - 64-bit support in Mac OS X 10.6 (Snow Leopard).
+    - Add autosave function to save clipboard history periodically.
+    - Automatic update support using Sparkle Framework.
+    - Add a dialog to ask you whether enable/disable "Launch on Login" option.
+    - Add an option to enable/disable re-ordering history when clipboard data is changed.
+    - Append the application's version number to a tooltip on the status menubar icon.
+    changed:
+    - Change default keyboard shortcut keys (command-shift-v, command-shift-b).
+    - Change folder icon when mouse over a folder menu item in a menu.
+    - Make status bar icon selectable.
+    - Add new status bar icons (by Dave Ulrich).
+    - Change the label of "Quit" menu item to "Quit ClipMenu".
+    - Add a suppression button to the dialog window to ask whether show it or not.
+    - Multi-thread start up operations.
+    - Update Shortcut Recorder framework.
+    fixed:
+    - Fix a glitch occurred when max history size is decreased.
+    - Fix an issue with preferences panel.
+
+0.3.5:
+  date: 2009-06-17
+  changes:
+    new:
+    - Added "Paste as File Path" action.
+    - Added "Paste as HFS File Path" action.
+    - Added Japanese hiragana <-> katakana converter actions.
+    - Added Japanese half-width katakana <-> full-width katakana converter actions.
+    - Added actions for surrounding selected item with parenthesizes or HTML tags.
+    - Added actions for calculating MD5/SHA-1 hash and Base64 encoding/decoding.
+    - Added actions for Markdown conversion, encoding/decoding URI component, escaping/unescaping HTML characters, removing HTML tags, collapsing spaces and converting characters to decimals.
+    - Included JavaScript libraries, fhconvert.js, showdown.js, v8cgi and JS-methods.
+    - Added activate() method for JavaScript action.
+    - Added a setting to limit the maximum length of tool tip string.
+    changed:
+    - You can now apply actions to snippets.
+    - Changed a behavior when you create a new snippet. If you forget to enter the content of the snippet, its title will be copied automatically to the content.
+    - Improved the way to check duplication of history items.
+    - Changed serialization format of registered actions to Property List.
+    - Changed default action set.
+    - Changed the way to load bundled JavaScript actions.
+    - Changed a JavaScript library for Japanese characters conversion "z2h_word.js" to "fhconvert.js".
+    - Updated inflection.js to the most recent version.
+    - Added Japanese localization for names of JavaScript actions at Preferences panel.
+    - Improved usability of preferences panel.
+    fixed:
+    - Fixed a glitch that an error dialog called in JavaScript actions is not the most front window.
+
+0.3.4:
+  date: 2009-05-24
+  changes:
+    new:
+      - Support Spaces on Leopard.
+      - New website.
+      - Add ReadMe file in English.
+    changed:
+      - Accept a shortcut key combination (Command-Option-V).
+    fixed:
+      - Removed snippets remain in Snippets.xml file.
+      - Cannot close Preferences panel by shortcut key combination.
+
+0.3.3:
+  date: 2008-12-06
+
+0.3.2:
+  date: 2008-11-26
+
+0.3.1:
+  date: 2008-11-12
+
+0.3.0:
+  date: 2008-11-09
+  note: Mac OS X 10.5 or later.
+
+0.2.1:
+  date: 2008-03-13
+
+0.2.0:
+  date: 2008-03-10
+  note: Mac OS X 10.4 or later.
+
+0.1.1:
+  date: 2008-01-15
+
+0.1.0:
+  date: 2008-01-03
+  note: Mac OS X 10.3 or later.
+
