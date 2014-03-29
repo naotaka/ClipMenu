@@ -2,6 +2,8 @@ ClipMenu
 ========
 A clipboard manager for Mac OS X.
 
+![ClipMenu](./screenshot.jpg)
+
 Target environments
 -------------------
 
