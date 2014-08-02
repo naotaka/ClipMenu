@@ -12,7 +12,6 @@
 		3505FF730D7FB14A00B55D03 /* BuiltInActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3505FF720D7FB14A00B55D03 /* BuiltInActionController.m */; };
 		3518CA990D07646C00158053 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3518CA980D07646C00158053 /* MenuController.m */; };
 		3518CE070D07966B00158053 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3518CE060D07966B00158053 /* Carbon.framework */; };
-		3542A8AF0D5EBF3800B3BBBD /* NSString+NaoAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3542A8AE0D5EBF3800B3BBBD /* NSString+NaoAdditions.m */; };
 		3542A8CB0D5EC15000B3BBBD /* ActionNodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3542A8CA0D5EC15000B3BBBD /* ActionNodeController.m */; };
 		3542A92B0D5EC6C300B3BBBD /* CMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3542A92A0D5EC6C300B3BBBD /* CMUtilities.m */; };
 		3542AD6F0D62828000B3BBBD /* ActionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3542AD6E0D62828000B3BBBD /* ActionNode.m */; };
@@ -32,6 +31,10 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A19FC72A198BEA1C001D81B7 /* NSString+NaoAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A19FC729198BEA1C001D81B7 /* NSString+NaoAdditions.m */; };
+		A19FC72D198BEA37001D81B7 /* NMLoginItems.m in Sources */ = {isa = PBXBuildFile; fileRef = A19FC72C198BEA37001D81B7 /* NMLoginItems.m */; };
+		A19FC733198C6DFB001D81B7 /* libPTHotkey-OSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FC732198C6DFB001D81B7 /* libPTHotkey-OSX.a */; };
+		A19FC735198D40BD001D81B7 /* BWToolkit.ibplugin in Resources */ = {isa = PBXBuildFile; fileRef = A19FC734198D40BD001D81B7 /* BWToolkit.ibplugin */; };
 		A821F5411085696E00B25C8B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A821F5401085696E00B25C8B /* dsa_pub.pem */; };
 		A821F5421085696E00B25C8B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A821F5401085696E00B25C8B /* dsa_pub.pem */; };
 		A82348FD10BFDEB00045C1F4 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A82348FC10BFDEB00045C1F4 /* ImageAndTextCell.m */; };
@@ -53,7 +56,6 @@
 		A82B8AC60EC3F8D700096102 /* Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 3593F1840D025D5500B95536 /* Clip.m */; };
 		A82B8AC70EC3F8D700096102 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3518CA980D07646C00158053 /* MenuController.m */; };
 		A82B8AC80EC3F8D700096102 /* ActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35939DAA0D42D4FE006504B3 /* ActionController.m */; };
-		A82B8ACB0EC3F8D700096102 /* NSString+NaoAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3542A8AE0D5EBF3800B3BBBD /* NSString+NaoAdditions.m */; };
 		A82B8ACC0EC3F8D700096102 /* ActionNodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3542A8CA0D5EC15000B3BBBD /* ActionNodeController.m */; };
 		A82B8ACD0EC3F8D700096102 /* CMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3542A92A0D5EC6C300B3BBBD /* CMUtilities.m */; };
 		A82B8ACE0EC3F8D700096102 /* ActionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3542AD6E0D62828000B3BBBD /* ActionNode.m */; };
@@ -162,8 +164,6 @@
 		A8F56B1710C272AF00646BDB /* FolderNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F56B1510C272AF00646BDB /* FolderNode.m */; };
 		A8F56BBB10C292D400646BDB /* NSIndexPath_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F56BBA10C292D400646BDB /* NSIndexPath_Extensions.m */; };
 		A8F56BBC10C292D400646BDB /* NSIndexPath_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F56BBA10C292D400646BDB /* NSIndexPath_Extensions.m */; };
-		A8F56BD010C2942D00646BDB /* NMLoginItems.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F56BCF10C2942D00646BDB /* NMLoginItems.m */; };
-		A8F56BD110C2942D00646BDB /* NMLoginItems.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F56BCF10C2942D00646BDB /* NMLoginItems.m */; };
 		A8FA6E5A10AD66E200AFAB75 /* ScriptableClip.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FA6E5910AD66E200AFAB75 /* ScriptableClip.m */; };
 		A8FA6E5B10AD66E200AFAB75 /* ScriptableClip.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FA6E5910AD66E200AFAB75 /* ScriptableClip.m */; };
 /* End PBXBuildFile section */
@@ -200,8 +200,6 @@
 		3518CA970D07646B00158053 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuController.h; path = Source/MenuController.h; sourceTree = "<group>"; };
 		3518CA980D07646C00158053 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuController.m; path = Source/MenuController.m; sourceTree = "<group>"; };
 		3518CE060D07966B00158053 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		3542A8AD0D5EBF3800B3BBBD /* NSString+NaoAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NaoAdditions.h"; sourceTree = "<group>"; };
-		3542A8AE0D5EBF3800B3BBBD /* NSString+NaoAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NaoAdditions.m"; sourceTree = "<group>"; };
 		3542A8C90D5EC15000B3BBBD /* ActionNodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionNodeController.h; path = Source/ActionNodeController.h; sourceTree = "<group>"; };
 		3542A8CA0D5EC15000B3BBBD /* ActionNodeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActionNodeController.m; path = Source/ActionNodeController.m; sourceTree = "<group>"; };
 		3542A9290D5EC6C300B3BBBD /* CMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMUtilities.h; path = Source/CMUtilities.h; sourceTree = "<group>"; };
@@ -231,6 +229,12 @@
 		35C02FFA0D6BAB8300B95FF5 /* script */ = {isa = PBXFileReference; lastKnownFileType = folder; name = script; path = resource/script; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ClipMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A19FC728198BEA1C001D81B7 /* NSString+NaoAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NaoAdditions.h"; path = "Source/NaoAdditions/NSString+NaoAdditions.h"; sourceTree = SOURCE_ROOT; };
+		A19FC729198BEA1C001D81B7 /* NSString+NaoAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NaoAdditions.m"; path = "Source/NaoAdditions/NSString+NaoAdditions.m"; sourceTree = SOURCE_ROOT; };
+		A19FC72B198BEA37001D81B7 /* NMLoginItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMLoginItems.h; path = Source/NaoAdditions/NMLoginItems.h; sourceTree = "<group>"; };
+		A19FC72C198BEA37001D81B7 /* NMLoginItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMLoginItems.m; path = Source/NaoAdditions/NMLoginItems.m; sourceTree = "<group>"; };
+		A19FC732198C6DFB001D81B7 /* libPTHotkey-OSX.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPTHotkey-OSX.a"; sourceTree = "<group>"; };
+		A19FC734198D40BD001D81B7 /* BWToolkit.ibplugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BWToolkit.ibplugin; sourceTree = "<group>"; };
 		A821F5401085696E00B25C8B /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = resource/dsa_pub.pem; sourceTree = "<group>"; };
 		A821F5861085DA8A00B25C8B /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A82348FB10BFDEB00045C1F4 /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageAndTextCell.h; path = Source/CocoaExtensions/ImageAndTextCell.h; sourceTree = "<group>"; };
@@ -241,7 +245,7 @@
 		A8234A6910AAA05E00EB250C /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/SnippetEditor.strings; sourceTree = "<group>"; };
 		A82B8A460EC3DD0A00096102 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Preferences.strings; sourceTree = "<group>"; };
 		A82B8AEB0EC3F8D700096102 /* ClipMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8328DCC108859AE00A54DF4 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = /Library/Frameworks/ShortcutRecorder.framework; sourceTree = "<absolute>"; };
+		A8328DCC108859AE00A54DF4 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = /Users/nacika/ws/ClipMenu/Frameworks/ShortcutRecorder.framework; sourceTree = "<absolute>"; };
 		A8328E0A10885FAF00A54DF4 /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
 		A8328E0B10885FAF00A54DF4 /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPrefsWindowController.m; sourceTree = "<group>"; };
 		A842D3230EA97DA200DCB303 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = constants.h; path = Source/constants.h; sourceTree = "<group>"; };
@@ -305,8 +309,6 @@
 		A8F56B1510C272AF00646BDB /* FolderNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FolderNode.m; path = Source/FolderNode.m; sourceTree = "<group>"; };
 		A8F56BB910C292D400646BDB /* NSIndexPath_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSIndexPath_Extensions.h; path = Source/CocoaExtensions/NSIndexPath_Extensions.h; sourceTree = "<group>"; };
 		A8F56BBA10C292D400646BDB /* NSIndexPath_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSIndexPath_Extensions.m; path = Source/CocoaExtensions/NSIndexPath_Extensions.m; sourceTree = "<group>"; };
-		A8F56BCE10C2942D00646BDB /* NMLoginItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMLoginItems.h; path = ../../Library/NM/NMLoginItems.h; sourceTree = SOURCE_ROOT; };
-		A8F56BCF10C2942D00646BDB /* NMLoginItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMLoginItems.m; path = ../../Library/NM/NMLoginItems.m; sourceTree = SOURCE_ROOT; };
 		A8FA6E5810AD66E200AFAB75 /* ScriptableClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptableClip.h; sourceTree = "<group>"; };
 		A8FA6E5910AD66E200AFAB75 /* ScriptableClip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptableClip.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -318,6 +320,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				3518CE070D07966B00158053 /* Carbon.framework in Frameworks */,
+				A19FC733198C6DFB001D81B7 /* libPTHotkey-OSX.a in Frameworks */,
 				35939D670D42D38F006504B3 /* WebKit.framework in Frameworks */,
 				A8328DCD108859AE00A54DF4 /* ShortcutRecorder.framework in Frameworks */,
 				A897231B1095C6F500676306 /* Sparkle.framework in Frameworks */,
@@ -365,6 +368,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A19FC732198C6DFB001D81B7 /* libPTHotkey-OSX.a */,
 				35939D660D42D38F006504B3 /* WebKit.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				3518CE060D07966B00158053 /* Carbon.framework */,
@@ -439,6 +443,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A19FC734198D40BD001D81B7 /* BWToolkit.ibplugin */,
 				A8CEEA4B10AA465800C3823F /* BWToolkitFramework.framework */,
 				A897231A1095C6F500676306 /* Sparkle.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
@@ -458,8 +463,8 @@
 				3551F2BE0D75224900069069 /* ActionTypeTransformer.m */,
 				A8DF42B00ED13E9100506877 /* ActionPopUpButton.h */,
 				A8DF42B10ED13E9100506877 /* ActionPopUpButton.m */,
-				A8F56BCE10C2942D00646BDB /* NMLoginItems.h */,
-				A8F56BCF10C2942D00646BDB /* NMLoginItems.m */,
+				A19FC72B198BEA37001D81B7 /* NMLoginItems.h */,
+				A19FC72C198BEA37001D81B7 /* NMLoginItems.m */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -501,8 +506,8 @@
 		3542A8620D5EBE0400B3BBBD /* NaoAdditions */ = {
 			isa = PBXGroup;
 			children = (
-				3542A8AD0D5EBF3800B3BBBD /* NSString+NaoAdditions.h */,
-				3542A8AE0D5EBF3800B3BBBD /* NSString+NaoAdditions.m */,
+				A19FC728198BEA1C001D81B7 /* NSString+NaoAdditions.h */,
+				A19FC729198BEA1C001D81B7 /* NSString+NaoAdditions.m */,
 			);
 			name = NaoAdditions;
 			path = ../../Library/NaoAdditions;
@@ -673,9 +678,15 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ClipMenu" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ClipMenu */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -714,6 +725,7 @@
 				A8464DA0108AAC3B0040C8C6 /* StatusMenuIconByDaveUlrich-scissors1-color-right.png in Resources */,
 				A8464DA1108AAC3B0040C8C6 /* StatusMenuIconByDaveUlrich-scissors2-bw-left.png in Resources */,
 				A8464DA2108AAC3B0040C8C6 /* StatusMenuIconByDaveUlrich-scissors2-bw-right.png in Resources */,
+				A19FC735198D40BD001D81B7 /* BWToolkit.ibplugin in Resources */,
 				A8464DA3108AAC3B0040C8C6 /* StatusMenuIconByDaveUlrich-scissors2-color-left.png in Resources */,
 				A8464DA4108AAC3B0040C8C6 /* StatusMenuIconByDaveUlrich-scissors2-color-right.png in Resources */,
 				A8464DD6108AD6A90040C8C6 /* StatusMenuIconByDaveUlrich-diagonal-bw.png in Resources */,
@@ -805,7 +817,6 @@
 				3593F1850D025D5500B95536 /* Clip.m in Sources */,
 				3518CA990D07646C00158053 /* MenuController.m in Sources */,
 				35939DAB0D42D4FE006504B3 /* ActionController.m in Sources */,
-				3542A8AF0D5EBF3800B3BBBD /* NSString+NaoAdditions.m in Sources */,
 				3542A8CB0D5EC15000B3BBBD /* ActionNodeController.m in Sources */,
 				3542A92B0D5EC6C300B3BBBD /* CMUtilities.m in Sources */,
 				3542AD6F0D62828000B3BBBD /* ActionNode.m in Sources */,
@@ -815,6 +826,7 @@
 				3505FF1D0D7FAE8300B55D03 /* ActionFactory.m in Sources */,
 				3505FF200D7FAF1F00B55D03 /* ActionNodeFactory.m in Sources */,
 				3505FF730D7FB14A00B55D03 /* BuiltInActionController.m in Sources */,
+				A19FC72D198BEA37001D81B7 /* NMLoginItems.m in Sources */,
 				A89465E60EB97A62004ACD23 /* Snippets.xcdatamodel in Sources */,
 				A89465EB0EB97B92004ACD23 /* SnippetsController.m in Sources */,
 				A894673E0EB999B5004ACD23 /* IndexedArrayController.m in Sources */,
@@ -825,6 +837,7 @@
 				A8DF42B20ED13E9100506877 /* ActionPopUpButton.m in Sources */,
 				A8F30E811000429E006F3F9A /* NSArray_Extensions.m in Sources */,
 				A8328E0C10885FAF00A54DF4 /* DBPrefsWindowController.m in Sources */,
+				A19FC72A198BEA1C001D81B7 /* NSString+NaoAdditions.m in Sources */,
 				A8CEEA0710AA42B500C3823F /* SnippetEditorController.m in Sources */,
 				A8FA6E5B10AD66E200AFAB75 /* ScriptableClip.m in Sources */,
 				A86E478910B2D5E0000FB773 /* NSColor+String.m in Sources */,
@@ -833,7 +846,6 @@
 				A8F568E010C2239D00646BDB /* SeparatorCell.m in Sources */,
 				A8F56B1710C272AF00646BDB /* FolderNode.m in Sources */,
 				A8F56BBC10C292D400646BDB /* NSIndexPath_Extensions.m in Sources */,
-				A8F56BD110C2942D00646BDB /* NMLoginItems.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,7 +860,6 @@
 				A82B8AC60EC3F8D700096102 /* Clip.m in Sources */,
 				A82B8AC70EC3F8D700096102 /* MenuController.m in Sources */,
 				A82B8AC80EC3F8D700096102 /* ActionController.m in Sources */,
-				A82B8ACB0EC3F8D700096102 /* NSString+NaoAdditions.m in Sources */,
 				A82B8ACC0EC3F8D700096102 /* ActionNodeController.m in Sources */,
 				A82B8ACD0EC3F8D700096102 /* CMUtilities.m in Sources */,
 				A82B8ACE0EC3F8D700096102 /* ActionNode.m in Sources */,
@@ -875,7 +886,6 @@
 				A8F568DF10C2239D00646BDB /* SeparatorCell.m in Sources */,
 				A8F56B1610C272AF00646BDB /* FolderNode.m in Sources */,
 				A8F56BBB10C292D400646BDB /* NSIndexPath_Extensions.m in Sources */,
-				A8F56BD010C2942D00646BDB /* NMLoginItems.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1024,10 +1034,14 @@
 				GCC_WARN_MISSING_PARENTHESES = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = ClipMenu;
 				RUN_CLANG_STATIC_ANALYZER = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -1051,10 +1065,14 @@
 				GCC_WARN_MISSING_PARENTHESES = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = ClipMenu;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1066,6 +1084,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1076,6 +1095,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
