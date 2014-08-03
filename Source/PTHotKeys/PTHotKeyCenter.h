@@ -12,6 +12,7 @@
 // 		Andy Kim
 
 #import <Cocoa/Cocoa.h>
+#import <Carbon/Carbon.h>
 
 @class PTHotKey;
 
@@ -20,6 +21,8 @@
 	NSMutableDictionary*	mHotKeys; //Keys are carbon hot key IDs
 	BOOL					mEventHandlerInstalled;
 	UInt32					mHotKeyCount; // Used to assign new hot key ID
+    BOOL                    mIsPaused;
+    EventHandlerRef         mEventHandler;
 }
 
 + (PTHotKeyCenter *)sharedCenter;
@@ -31,5 +34,11 @@
 - (PTHotKey*)hotKeyWithIdentifier: (id)ident;
 
 - (void)sendEvent: (NSEvent*)event;
+
+- (void)pause;
+
+- (void)resume;
+
+- (BOOL)isPaused;
 
 @end

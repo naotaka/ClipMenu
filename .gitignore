@@ -17,5 +17,17 @@ DerivedData
 *.hmap
 *.xccheckout
 
-#CocoaPods
+# CocoaPods
 Pods
+
+# FrameWorks
+Frameworks/
+
+# ibplugin 
+Ibplugins/
+
+# Build
+Build/
+
+# libPTHotkey-OSX.a
+libPTHotkey-OSX.a
