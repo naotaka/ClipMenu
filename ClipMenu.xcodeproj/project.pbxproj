@@ -60,6 +60,9 @@
 		A19FC7DC198EA60D001D81B7 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FC7D6198EA522001D81B7 /* BWToolkitFramework.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A19FC7DD198EA60D001D81B7 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FC7D7198EA523001D81B7 /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A19FC7DE198EA60D001D81B7 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FC7D8198EA523001D81B7 /* Sparkle.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A1FD9535198EBA3C0067695A /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FC7D6198EA522001D81B7 /* BWToolkitFramework.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A1FD9536198EBA3C0067695A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FC7D8198EA523001D81B7 /* Sparkle.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A1FD9537198EBA690067695A /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FC7D7198EA523001D81B7 /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A821F5411085696E00B25C8B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A821F5401085696E00B25C8B /* dsa_pub.pem */; };
 		A821F5421085696E00B25C8B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A821F5401085696E00B25C8B /* dsa_pub.pem */; };
 		A82348FD10BFDEB00045C1F4 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A82348FC10BFDEB00045C1F4 /* ImageAndTextCell.m */; };
@@ -96,8 +99,6 @@
 		A82B8AE20EC3F8D700096102 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		A82B8AE30EC3F8D700096102 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3518CE060D07966B00158053 /* Carbon.framework */; };
 		A82B8AE40EC3F8D700096102 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35939D660D42D38F006504B3 /* WebKit.framework */; };
-		A8328DCE108859AE00A54DF4 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8328DCC108859AE00A54DF4 /* ShortcutRecorder.framework */; };
-		A8328DD9108859B100A54DF4 /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8328DCC108859AE00A54DF4 /* ShortcutRecorder.framework */; };
 		A8328E0C10885FAF00A54DF4 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8328E0B10885FAF00A54DF4 /* DBPrefsWindowController.m */; };
 		A8328E0D10885FAF00A54DF4 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8328E0B10885FAF00A54DF4 /* DBPrefsWindowController.m */; };
 		A8464D9D108AAC3B0040C8C6 /* StatusMenuIconByDaveUlrich-scissors1-bw-left.png in Resources */ = {isa = PBXBuildFile; fileRef = A8464D95108AAC3B0040C8C6 /* StatusMenuIconByDaveUlrich-scissors1-bw-left.png */; };
@@ -144,8 +145,6 @@
 		A89465EB0EB97B92004ACD23 /* SnippetsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89465EA0EB97B92004ACD23 /* SnippetsController.m */; };
 		A894673E0EB999B5004ACD23 /* IndexedArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = A894673D0EB999B5004ACD23 /* IndexedArrayController.m */; };
 		A89716F40EA877CD005EE8E8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89716F20EA877CD005EE8E8 /* MainMenu.xib */; };
-		A897231C1095C6F500676306 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897231A1095C6F500676306 /* Sparkle.framework */; };
-		A89723271095C70900676306 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A897231A1095C6F500676306 /* Sparkle.framework */; };
 		A8975E9C1087042E00973851 /* SparkleIcon.tif in Resources */ = {isa = PBXBuildFile; fileRef = A8975E9B1087042E00973851 /* SparkleIcon.tif */; };
 		A8975E9D1087042E00973851 /* SparkleIcon.tif in Resources */ = {isa = PBXBuildFile; fileRef = A8975E9B1087042E00973851 /* SparkleIcon.tif */; };
 		A8A6350D116C4F0F001ED122 /* StatusMenuIconBySuphiAksoy_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A6350B116C4F0F001ED122 /* StatusMenuIconBySuphiAksoy_pressed.png */; };
@@ -156,8 +155,6 @@
 		A8C53AB710AA6585001930BE /* SnippetEditor.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8C53AB510AA6585001930BE /* SnippetEditor.xib */; };
 		A8CEEA0610AA42B500C3823F /* SnippetEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CEEA0510AA42B500C3823F /* SnippetEditorController.m */; };
 		A8CEEA0710AA42B500C3823F /* SnippetEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CEEA0510AA42B500C3823F /* SnippetEditorController.m */; };
-		A8CEEA4C10AA465800C3823F /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CEEA4B10AA465800C3823F /* BWToolkitFramework.framework */; };
-		A8CEEA8010AA466800C3823F /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8CEEA4B10AA465800C3823F /* BWToolkitFramework.framework */; };
 		A8DCABDE10819C81006E02C8 /* StatusMenuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DCABD810819C81006E02C8 /* StatusMenuIcon.png */; };
 		A8DCABDF10819C81006E02C8 /* StatusMenuIcon_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DCABD910819C81006E02C8 /* StatusMenuIcon_pressed.png */; };
 		A8DCABE010819C81006E02C8 /* StatusMenuIconFirst.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DCABDA10819C81006E02C8 /* StatusMenuIconFirst.png */; };
@@ -189,9 +186,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A8CEEA8010AA466800C3823F /* BWToolkitFramework.framework in CopyFiles */,
-				A89723271095C70900676306 /* Sparkle.framework in CopyFiles */,
-				A8328DD9108859B100A54DF4 /* ShortcutRecorder.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +305,6 @@
 		A8234A6910AAA05E00EB250C /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/SnippetEditor.strings; sourceTree = "<group>"; };
 		A82B8A460EC3DD0A00096102 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Preferences.strings; sourceTree = "<group>"; };
 		A82B8AEB0EC3F8D700096102 /* ClipMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8328DCC108859AE00A54DF4 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = /Users/nacika/ws/ClipMenu/Frameworks/ShortcutRecorder.framework; sourceTree = "<absolute>"; };
 		A8328E0A10885FAF00A54DF4 /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
 		A8328E0B10885FAF00A54DF4 /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPrefsWindowController.m; sourceTree = "<group>"; };
 		A842D3230EA97DA200DCB303 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = constants.h; path = Source/constants.h; sourceTree = "<group>"; };
@@ -342,14 +335,12 @@
 		A894673D0EB999B5004ACD23 /* IndexedArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexedArrayController.m; path = Source/IndexedArrayController.m; sourceTree = "<group>"; };
 		A89716F30EA877CD005EE8E8 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A89716F70EA8780B005EE8E8 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Preferences.xib; sourceTree = "<group>"; };
-		A897231A1095C6F500676306 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		A8975E9B1087042E00973851 /* SparkleIcon.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SparkleIcon.tif; path = resource/SparkleIcon.tif; sourceTree = "<group>"; };
 		A8A6350B116C4F0F001ED122 /* StatusMenuIconBySuphiAksoy_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusMenuIconBySuphiAksoy_pressed.png; sourceTree = "<group>"; };
 		A8A6350C116C4F0F001ED122 /* StatusMenuIconBySuphiAksoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusMenuIconBySuphiAksoy.png; sourceTree = "<group>"; };
 		A8C53AB810AA658D001930BE /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Japanese; path = Japanese.lproj/SnippetEditor.xib; sourceTree = "<group>"; };
 		A8CEEA0410AA42B500C3823F /* SnippetEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SnippetEditorController.h; path = Source/SnippetEditorController.h; sourceTree = "<group>"; };
 		A8CEEA0510AA42B500C3823F /* SnippetEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SnippetEditorController.m; path = Source/SnippetEditorController.m; sourceTree = "<group>"; };
-		A8CEEA4B10AA465800C3823F /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = Frameworks/BWToolkitFramework.framework; sourceTree = "<group>"; };
 		A8DC723210A91D61001D3E99 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SnippetEditor.xib; sourceTree = "<group>"; };
 		A8DCABD810819C81006E02C8 /* StatusMenuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusMenuIcon.png; sourceTree = "<group>"; };
 		A8DCABD910819C81006E02C8 /* StatusMenuIcon_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusMenuIcon_pressed.png; sourceTree = "<group>"; };
@@ -390,12 +381,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1FD9537198EBA690067695A /* ShortcutRecorder.framework in Frameworks */,
+				A1FD9535198EBA3C0067695A /* BWToolkitFramework.framework in Frameworks */,
+				A1FD9536198EBA3C0067695A /* Sparkle.framework in Frameworks */,
 				A82B8AE20EC3F8D700096102 /* Cocoa.framework in Frameworks */,
 				A82B8AE30EC3F8D700096102 /* Carbon.framework in Frameworks */,
 				A82B8AE40EC3F8D700096102 /* WebKit.framework in Frameworks */,
-				A8328DCE108859AE00A54DF4 /* ShortcutRecorder.framework in Frameworks */,
-				A897231C1095C6F500676306 /* Sparkle.framework in Frameworks */,
-				A8CEEA4C10AA465800C3823F /* BWToolkitFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,11 +416,9 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A19FC732198C6DFB001D81B7 /* libPTHotkey-OSX.a */,
 				35939D660D42D38F006504B3 /* WebKit.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				3518CE060D07966B00158053 /* Carbon.framework */,
-				A8328DCC108859AE00A54DF4 /* ShortcutRecorder.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -456,9 +445,6 @@
 		29B97314FDCFA39411CA2CEA /* ClipMenu */ = {
 			isa = PBXGroup;
 			children = (
-				A19FC7D6198EA522001D81B7 /* BWToolkitFramework.framework */,
-				A19FC7D7198EA523001D81B7 /* ShortcutRecorder.framework */,
-				A19FC7D8198EA523001D81B7 /* Sparkle.framework */,
 				A89465DB0EB97A3D004ACD23 /* Models */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				3542A8620D5EBE0400B3BBBD /* NaoAdditions */,
@@ -506,8 +492,10 @@
 			isa = PBXGroup;
 			children = (
 				A19FC734198D40BD001D81B7 /* BWToolkit.ibplugin */,
-				A8CEEA4B10AA465800C3823F /* BWToolkitFramework.framework */,
-				A897231A1095C6F500676306 /* Sparkle.framework */,
+				A19FC732198C6DFB001D81B7 /* libPTHotkey-OSX.a */,
+				A19FC7D6198EA522001D81B7 /* BWToolkitFramework.framework */,
+				A19FC7D7198EA523001D81B7 /* ShortcutRecorder.framework */,
+				A19FC7D8198EA523001D81B7 /* Sparkle.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -1135,6 +1123,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1165,6 +1154,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
