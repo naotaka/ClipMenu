@@ -57,6 +57,9 @@
 		A19FC7CB198D6F71001D81B7 /* shortcut-recorder-clear.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A19FC7B0198D6F71001D81B7 /* shortcut-recorder-clear.tiff */; };
 		A19FC7CC198D6F71001D81B7 /* shortcut-recorder-snapback-highlighted.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A19FC7B1198D6F71001D81B7 /* shortcut-recorder-snapback-highlighted.tiff */; };
 		A19FC7CD198D6F71001D81B7 /* shortcut-recorder-snapback.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A19FC7B2198D6F71001D81B7 /* shortcut-recorder-snapback.tiff */; };
+		A19FC7DC198EA60D001D81B7 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FC7D6198EA522001D81B7 /* BWToolkitFramework.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A19FC7DD198EA60D001D81B7 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FC7D7198EA523001D81B7 /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A19FC7DE198EA60D001D81B7 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FC7D8198EA523001D81B7 /* Sparkle.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A821F5411085696E00B25C8B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A821F5401085696E00B25C8B /* dsa_pub.pem */; };
 		A821F5421085696E00B25C8B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A821F5401085696E00B25C8B /* dsa_pub.pem */; };
 		A82348FD10BFDEB00045C1F4 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A82348FC10BFDEB00045C1F4 /* ImageAndTextCell.m */; };
@@ -93,7 +96,6 @@
 		A82B8AE20EC3F8D700096102 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		A82B8AE30EC3F8D700096102 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3518CE060D07966B00158053 /* Carbon.framework */; };
 		A82B8AE40EC3F8D700096102 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35939D660D42D38F006504B3 /* WebKit.framework */; };
-		A8328DCD108859AE00A54DF4 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8328DCC108859AE00A54DF4 /* ShortcutRecorder.framework */; };
 		A8328DCE108859AE00A54DF4 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8328DCC108859AE00A54DF4 /* ShortcutRecorder.framework */; };
 		A8328DD9108859B100A54DF4 /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8328DCC108859AE00A54DF4 /* ShortcutRecorder.framework */; };
 		A8328E0C10885FAF00A54DF4 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8328E0B10885FAF00A54DF4 /* DBPrefsWindowController.m */; };
@@ -142,7 +144,6 @@
 		A89465EB0EB97B92004ACD23 /* SnippetsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89465EA0EB97B92004ACD23 /* SnippetsController.m */; };
 		A894673E0EB999B5004ACD23 /* IndexedArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = A894673D0EB999B5004ACD23 /* IndexedArrayController.m */; };
 		A89716F40EA877CD005EE8E8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89716F20EA877CD005EE8E8 /* MainMenu.xib */; };
-		A897231B1095C6F500676306 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897231A1095C6F500676306 /* Sparkle.framework */; };
 		A897231C1095C6F500676306 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897231A1095C6F500676306 /* Sparkle.framework */; };
 		A89723271095C70900676306 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A897231A1095C6F500676306 /* Sparkle.framework */; };
 		A8975E9C1087042E00973851 /* SparkleIcon.tif in Resources */ = {isa = PBXBuildFile; fileRef = A8975E9B1087042E00973851 /* SparkleIcon.tif */; };
@@ -156,7 +157,6 @@
 		A8CEEA0610AA42B500C3823F /* SnippetEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CEEA0510AA42B500C3823F /* SnippetEditorController.m */; };
 		A8CEEA0710AA42B500C3823F /* SnippetEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CEEA0510AA42B500C3823F /* SnippetEditorController.m */; };
 		A8CEEA4C10AA465800C3823F /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CEEA4B10AA465800C3823F /* BWToolkitFramework.framework */; };
-		A8CEEA4D10AA465800C3823F /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CEEA4B10AA465800C3823F /* BWToolkitFramework.framework */; };
 		A8CEEA8010AA466800C3823F /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8CEEA4B10AA465800C3823F /* BWToolkitFramework.framework */; };
 		A8DCABDE10819C81006E02C8 /* StatusMenuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DCABD810819C81006E02C8 /* StatusMenuIcon.png */; };
 		A8DCABDF10819C81006E02C8 /* StatusMenuIcon_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DCABD910819C81006E02C8 /* StatusMenuIcon_pressed.png */; };
@@ -298,6 +298,9 @@
 		A19FC7B5198D6F71001D81B7 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/ShortcutRecorder.strings; sourceTree = "<group>"; };
 		A19FC7B6198D6F71001D81B7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ShortcutRecorder.strings"; sourceTree = "<group>"; };
 		A19FC7B7198D6F71001D81B7 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ShortcutRecorder.strings"; sourceTree = "<group>"; };
+		A19FC7D6198EA522001D81B7 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = Frameworks/BWToolkitFramework.framework; sourceTree = "<group>"; };
+		A19FC7D7198EA523001D81B7 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = Frameworks/ShortcutRecorder.framework; sourceTree = "<group>"; };
+		A19FC7D8198EA523001D81B7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		A821F5401085696E00B25C8B /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = resource/dsa_pub.pem; sourceTree = "<group>"; };
 		A821F5861085DA8A00B25C8B /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A82348FB10BFDEB00045C1F4 /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageAndTextCell.h; path = Source/CocoaExtensions/ImageAndTextCell.h; sourceTree = "<group>"; };
@@ -377,9 +380,9 @@
 				3518CE070D07966B00158053 /* Carbon.framework in Frameworks */,
 				A19FC733198C6DFB001D81B7 /* libPTHotkey-OSX.a in Frameworks */,
 				35939D670D42D38F006504B3 /* WebKit.framework in Frameworks */,
-				A8328DCD108859AE00A54DF4 /* ShortcutRecorder.framework in Frameworks */,
-				A897231B1095C6F500676306 /* Sparkle.framework in Frameworks */,
-				A8CEEA4D10AA465800C3823F /* BWToolkitFramework.framework in Frameworks */,
+				A19FC7DC198EA60D001D81B7 /* BWToolkitFramework.framework in Frameworks */,
+				A19FC7DD198EA60D001D81B7 /* ShortcutRecorder.framework in Frameworks */,
+				A19FC7DE198EA60D001D81B7 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +456,9 @@
 		29B97314FDCFA39411CA2CEA /* ClipMenu */ = {
 			isa = PBXGroup;
 			children = (
+				A19FC7D6198EA522001D81B7 /* BWToolkitFramework.framework */,
+				A19FC7D7198EA523001D81B7 /* ShortcutRecorder.framework */,
+				A19FC7D8198EA523001D81B7 /* Sparkle.framework */,
 				A89465DB0EB97A3D004ACD23 /* Models */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				3542A8620D5EBE0400B3BBBD /* NaoAdditions */,
@@ -528,9 +534,9 @@
 		3505FF150D7FADC400B55D03 /* Action */ = {
 			isa = PBXGroup;
 			children = (
+				3505FF1E0D7FAF1F00B55D03 /* ActionNodeFactory.h */,
 				35939DA90D42D4FE006504B3 /* ActionController.h */,
 				35939DAA0D42D4FE006504B3 /* ActionController.m */,
-				3505FF1E0D7FAF1F00B55D03 /* ActionNodeFactory.h */,
 				3505FF1F0D7FAF1F00B55D03 /* ActionNodeFactory.m */,
 				3542AD6D0D62828000B3BBBD /* ActionNode.h */,
 				3542AD6E0D62828000B3BBBD /* ActionNode.m */,
@@ -1199,7 +1205,7 @@
 				GCC_WARN_MISSING_PARENTHESES = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				LD_RUNPATH_SEARCH_PATHS = Frameworks/;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1232,7 +1238,7 @@
 				GCC_WARN_MISSING_PARENTHESES = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				LD_RUNPATH_SEARCH_PATHS = Frameworks/;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
