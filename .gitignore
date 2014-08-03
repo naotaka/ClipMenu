@@ -24,7 +24,7 @@ Pods
 Frameworks/
 
 # ibplugin 
-BWToolkit.ibplugin
+Ibplugins/
 
 # Build
 Build/
