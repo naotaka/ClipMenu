@@ -565,6 +565,9 @@ BOOL sameBehaviors(id a, id b)
 	[self setShortcutRecorders:recorders];
 	
 	NSDictionary *hotKeyMap = [CMUtilities hotKeyMap];
+    
+    NSUserDefaultsController *defaults = [NSUserDefaultsController sharedUserDefaultsController];
+    
 	NSDictionary *hotKeyCombos = [[NSUserDefaults standardUserDefaults] objectForKey:CMPrefHotKeysKey];
 	for (NSString *identifier in hotKeyCombos) {
 //		NSLog(@"identifier: %@", identifier);
@@ -589,9 +592,9 @@ BOOL sameBehaviors(id a, id b)
 		SRRecorderControl *recorder = [recorders objectAtIndex:index];
 
         
-        
-		//[recorder setKeyCombo: combo];		
-		// [recorder setAnimates:YES];
+        /// TODO
+		/// [recorder setKeyCombo: combo];		
+		/// [recorder setAnimates:YES];
 	}
 }
 
