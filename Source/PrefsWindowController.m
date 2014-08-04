@@ -193,6 +193,8 @@ BOOL sameBehaviors(id a, id b)
 	NSWindow *window = [self window];
 	[window setDelegate:self];
 	[window setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
+    
+    
 }
 
 #pragma mark -
@@ -555,6 +557,8 @@ BOOL sameBehaviors(id a, id b)
 
 - (void)_prepareHotKeys
 {
+    
+    
 	NSMutableArray *recorders = [NSMutableArray arrayWithObjects:
 								 shortcutRecorder, historyShortCutRecorder, snippetsShortcutRecorder,
 								 nil];
@@ -583,8 +587,11 @@ BOOL sameBehaviors(id a, id b)
 		NSUInteger index = [[[hotKeyMap objectForKey:identifier] objectForKey:kIndex] 
 							unsignedIntegerValue];		
 		SRRecorderControl *recorder = [recorders objectAtIndex:index];
-		[recorder setKeyCombo: combo];		
-		[recorder setAnimates:YES];
+
+        
+        
+		//[recorder setKeyCombo: combo];		
+		// [recorder setAnimates:YES];
 	}
 }
 

@@ -69,6 +69,16 @@
 		A1FD956F198F035B0067695A /* ShortcutRecorder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1FD9564198F03570067695A /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A1FD9570198F035B0067695A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FD9565198F03570067695A /* Sparkle.framework */; };
 		A1FD9571198F035B0067695A /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1FD9565198F03570067695A /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A1FD95A5198F0BEF0067695A /* PTHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FD959C198F0BEF0067695A /* PTHotKey.m */; };
+		A1FD95A6198F0BEF0067695A /* PTHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FD959C198F0BEF0067695A /* PTHotKey.m */; };
+		A1FD95A7198F0BEF0067695A /* PTHotKey+ShortcutRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FD959E198F0BEF0067695A /* PTHotKey+ShortcutRecorder.m */; };
+		A1FD95A8198F0BEF0067695A /* PTHotKey+ShortcutRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FD959E198F0BEF0067695A /* PTHotKey+ShortcutRecorder.m */; };
+		A1FD95A9198F0BEF0067695A /* PTHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FD95A0198F0BEF0067695A /* PTHotKeyCenter.m */; };
+		A1FD95AA198F0BEF0067695A /* PTHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FD95A0198F0BEF0067695A /* PTHotKeyCenter.m */; };
+		A1FD95AB198F0BEF0067695A /* PTKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FD95A2198F0BEF0067695A /* PTKeyCodeTranslator.m */; };
+		A1FD95AC198F0BEF0067695A /* PTKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FD95A2198F0BEF0067695A /* PTKeyCodeTranslator.m */; };
+		A1FD95AD198F0BEF0067695A /* PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FD95A4198F0BEF0067695A /* PTKeyCombo.m */; };
+		A1FD95AE198F0BEF0067695A /* PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FD95A4198F0BEF0067695A /* PTKeyCombo.m */; };
 		A821F5411085696E00B25C8B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A821F5401085696E00B25C8B /* dsa_pub.pem */; };
 		A821F5421085696E00B25C8B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A821F5401085696E00B25C8B /* dsa_pub.pem */; };
 		A82348FD10BFDEB00045C1F4 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A82348FC10BFDEB00045C1F4 /* ImageAndTextCell.m */; };
@@ -262,11 +272,6 @@
 		A19FC72C198BEA37001D81B7 /* NMLoginItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMLoginItems.m; path = Source/NaoAdditions/NMLoginItems.m; sourceTree = "<group>"; };
 		A19FC732198C6DFB001D81B7 /* libPTHotkey-OSX.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPTHotkey-OSX.a"; sourceTree = "<group>"; };
 		A19FC734198D40BD001D81B7 /* BWToolkit.ibplugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = BWToolkit.ibplugin; path = Ibplugins/BWToolkit.ibplugin; sourceTree = "<group>"; };
-		A19FC770198D6B4F001D81B7 /* PTHotKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTHotKey.h; path = Source/PTHotKeys/PTHotKey.h; sourceTree = SOURCE_ROOT; };
-		A19FC772198D6B4F001D81B7 /* PTHotKey+ShortcutRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PTHotKey+ShortcutRecorder.h"; path = "Source/PTHotKeys/PTHotKey+ShortcutRecorder.h"; sourceTree = SOURCE_ROOT; };
-		A19FC774198D6B4F001D81B7 /* PTHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTHotKeyCenter.h; path = Source/PTHotKeys/PTHotKeyCenter.h; sourceTree = SOURCE_ROOT; };
-		A19FC776198D6B4F001D81B7 /* PTKeyCodeTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCodeTranslator.h; path = Source/PTHotKeys/PTKeyCodeTranslator.h; sourceTree = SOURCE_ROOT; };
-		A19FC778198D6B4F001D81B7 /* PTKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCombo.h; path = Source/PTHotKeys/PTKeyCombo.h; sourceTree = SOURCE_ROOT; };
 		A19FC78C198D6F71001D81B7 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/ShortcutRecorder.strings; sourceTree = "<group>"; };
 		A19FC78D198D6F71001D81B7 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/ShortcutRecorder.strings; sourceTree = "<group>"; };
 		A19FC78E198D6F71001D81B7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ShortcutRecorder.strings; sourceTree = "<group>"; };
@@ -314,6 +319,16 @@
 		A1FD9563198F03570067695A /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = Frameworks/BWToolkitFramework.framework; sourceTree = "<group>"; };
 		A1FD9564198F03570067695A /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = Frameworks/ShortcutRecorder.framework; sourceTree = "<group>"; };
 		A1FD9565198F03570067695A /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		A1FD959B198F0BEF0067695A /* PTHotKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTHotKey.h; path = Source/PTHotKeys/PTHotKey.h; sourceTree = SOURCE_ROOT; };
+		A1FD959C198F0BEF0067695A /* PTHotKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTHotKey.m; path = Source/PTHotKeys/PTHotKey.m; sourceTree = SOURCE_ROOT; };
+		A1FD959D198F0BEF0067695A /* PTHotKey+ShortcutRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PTHotKey+ShortcutRecorder.h"; path = "Source/PTHotKeys/PTHotKey+ShortcutRecorder.h"; sourceTree = SOURCE_ROOT; };
+		A1FD959E198F0BEF0067695A /* PTHotKey+ShortcutRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PTHotKey+ShortcutRecorder.m"; path = "Source/PTHotKeys/PTHotKey+ShortcutRecorder.m"; sourceTree = SOURCE_ROOT; };
+		A1FD959F198F0BEF0067695A /* PTHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTHotKeyCenter.h; path = Source/PTHotKeys/PTHotKeyCenter.h; sourceTree = SOURCE_ROOT; };
+		A1FD95A0198F0BEF0067695A /* PTHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTHotKeyCenter.m; path = Source/PTHotKeys/PTHotKeyCenter.m; sourceTree = SOURCE_ROOT; };
+		A1FD95A1198F0BEF0067695A /* PTKeyCodeTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCodeTranslator.h; path = Source/PTHotKeys/PTKeyCodeTranslator.h; sourceTree = SOURCE_ROOT; };
+		A1FD95A2198F0BEF0067695A /* PTKeyCodeTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyCodeTranslator.m; path = Source/PTHotKeys/PTKeyCodeTranslator.m; sourceTree = SOURCE_ROOT; };
+		A1FD95A3198F0BEF0067695A /* PTKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCombo.h; path = Source/PTHotKeys/PTKeyCombo.h; sourceTree = SOURCE_ROOT; };
+		A1FD95A4198F0BEF0067695A /* PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyCombo.m; path = Source/PTHotKeys/PTKeyCombo.m; sourceTree = SOURCE_ROOT; };
 		A821F5401085696E00B25C8B /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = resource/dsa_pub.pem; sourceTree = "<group>"; };
 		A821F5861085DA8A00B25C8B /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A82348FB10BFDEB00045C1F4 /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageAndTextCell.h; path = Source/CocoaExtensions/ImageAndTextCell.h; sourceTree = "<group>"; };
@@ -588,11 +603,16 @@
 		A19FC75E198D6B18001D81B7 /* PTHotKey */ = {
 			isa = PBXGroup;
 			children = (
-				A19FC770198D6B4F001D81B7 /* PTHotKey.h */,
-				A19FC772198D6B4F001D81B7 /* PTHotKey+ShortcutRecorder.h */,
-				A19FC774198D6B4F001D81B7 /* PTHotKeyCenter.h */,
-				A19FC776198D6B4F001D81B7 /* PTKeyCodeTranslator.h */,
-				A19FC778198D6B4F001D81B7 /* PTKeyCombo.h */,
+				A1FD959B198F0BEF0067695A /* PTHotKey.h */,
+				A1FD959C198F0BEF0067695A /* PTHotKey.m */,
+				A1FD959D198F0BEF0067695A /* PTHotKey+ShortcutRecorder.h */,
+				A1FD959E198F0BEF0067695A /* PTHotKey+ShortcutRecorder.m */,
+				A1FD959F198F0BEF0067695A /* PTHotKeyCenter.h */,
+				A1FD95A0198F0BEF0067695A /* PTHotKeyCenter.m */,
+				A1FD95A1198F0BEF0067695A /* PTKeyCodeTranslator.h */,
+				A1FD95A2198F0BEF0067695A /* PTKeyCodeTranslator.m */,
+				A1FD95A3198F0BEF0067695A /* PTKeyCombo.h */,
+				A1FD95A4198F0BEF0067695A /* PTKeyCombo.m */,
 			);
 			path = PTHotKey;
 			sourceTree = "<group>";
@@ -974,6 +994,7 @@
 				356F060E0D012C68003689C0 /* AppController.m in Sources */,
 				356F073F0D024327003689C0 /* ClipsController.m in Sources */,
 				3593F1850D025D5500B95536 /* Clip.m in Sources */,
+				A1FD95A7198F0BEF0067695A /* PTHotKey+ShortcutRecorder.m in Sources */,
 				3518CA990D07646C00158053 /* MenuController.m in Sources */,
 				35939DAB0D42D4FE006504B3 /* ActionController.m in Sources */,
 				3542A8CB0D5EC15000B3BBBD /* ActionNodeController.m in Sources */,
@@ -982,8 +1003,10 @@
 				3551F2BF0D75224900069069 /* ActionTypeTransformer.m in Sources */,
 				3551F3720D7658EF00069069 /* JavaScriptSupport.m in Sources */,
 				35A42CC40D7D0ABA005FFB4C /* PrefsWindowController.m in Sources */,
+				A1FD95AB198F0BEF0067695A /* PTKeyCodeTranslator.m in Sources */,
 				3505FF1D0D7FAE8300B55D03 /* ActionFactory.m in Sources */,
 				3505FF200D7FAF1F00B55D03 /* ActionNodeFactory.m in Sources */,
+				A1FD95AD198F0BEF0067695A /* PTKeyCombo.m in Sources */,
 				3505FF730D7FB14A00B55D03 /* BuiltInActionController.m in Sources */,
 				A19FC72D198BEA37001D81B7 /* NMLoginItems.m in Sources */,
 				A89465E60EB97A62004ACD23 /* Snippets.xcdatamodel in Sources */,
@@ -997,8 +1020,10 @@
 				A8FA6E5B10AD66E200AFAB75 /* ScriptableClip.m in Sources */,
 				A86E478910B2D5E0000FB773 /* NSColor+String.m in Sources */,
 				A82348FE10BFDEB00045C1F4 /* ImageAndTextCell.m in Sources */,
+				A1FD95A9198F0BEF0067695A /* PTHotKeyCenter.m in Sources */,
 				A823495810BFE3880045C1F4 /* BaseNode.m in Sources */,
 				A8F568E010C2239D00646BDB /* SeparatorCell.m in Sources */,
+				A1FD95A5198F0BEF0067695A /* PTHotKey.m in Sources */,
 				A8F56B1710C272AF00646BDB /* FolderNode.m in Sources */,
 				A8F56BBC10C292D400646BDB /* NSIndexPath_Extensions.m in Sources */,
 			);
@@ -1012,6 +1037,7 @@
 				A82B8AC30EC3F8D700096102 /* main.m in Sources */,
 				A82B8AC40EC3F8D700096102 /* AppController.m in Sources */,
 				A82B8AC50EC3F8D700096102 /* ClipsController.m in Sources */,
+				A1FD95AA198F0BEF0067695A /* PTHotKeyCenter.m in Sources */,
 				A82B8AC60EC3F8D700096102 /* Clip.m in Sources */,
 				A82B8AC70EC3F8D700096102 /* MenuController.m in Sources */,
 				A82B8AC80EC3F8D700096102 /* ActionController.m in Sources */,
@@ -1021,12 +1047,16 @@
 				A82B8AD00EC3F8D700096102 /* ActionTypeTransformer.m in Sources */,
 				A82B8AD10EC3F8D700096102 /* JavaScriptSupport.m in Sources */,
 				A82B8AD30EC3F8D700096102 /* PrefsWindowController.m in Sources */,
+				A1FD95AE198F0BEF0067695A /* PTKeyCombo.m in Sources */,
 				A82B8AD40EC3F8D700096102 /* ActionFactory.m in Sources */,
 				A82B8AD50EC3F8D700096102 /* ActionNodeFactory.m in Sources */,
 				A82B8AD60EC3F8D700096102 /* BuiltInActionController.m in Sources */,
 				A82B8AD90EC3F8D700096102 /* Snippets.xcdatamodel in Sources */,
 				A82B8ADA0EC3F8D700096102 /* SnippetsController.m in Sources */,
 				A82B8ADC0EC3F8D700096102 /* IndexedArrayController.m in Sources */,
+				A1FD95AC198F0BEF0067695A /* PTKeyCodeTranslator.m in Sources */,
+				A1FD95A6198F0BEF0067695A /* PTHotKey.m in Sources */,
+				A1FD95A8198F0BEF0067695A /* PTHotKey+ShortcutRecorder.m in Sources */,
 				A8F30E831000429E006F3F9A /* NSArray_Extensions.m in Sources */,
 				A8328E0D10885FAF00A54DF4 /* DBPrefsWindowController.m in Sources */,
 				A8CEEA0610AA42B500C3823F /* SnippetEditorController.m in Sources */,
