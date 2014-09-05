@@ -4,6 +4,15 @@ A clipboard manager for Mac OS X.
 
 ![ClipMenu](./screenshot.jpg)
 
+## Distribution
+
+If you distribute derived work, especially in the Mac App Store, I ask you to follow two rules:
+
+1. **Don't use "ClipMenu" as your product name.**
+2. **Follow the MIT license terms.**
+
+Thank you for your cooperation.
+
 Target environments
 -------------------
 
