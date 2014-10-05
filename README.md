@@ -39,3 +39,5 @@ Naotaka Morimoto ([@naotakaM](http://twitter.com/naotakaM))
 License
 -------
 ClipMenu is available under the MIT license. See the LICENSE file for more info.
+
+Icons are copyrighted by their respective authors.
