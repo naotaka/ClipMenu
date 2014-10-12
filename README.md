@@ -2,6 +2,8 @@ ClipMenu
 ========
 A clipboard manager for Mac OS X.
 
+** New ClipMenu, completely rebuilt using Swift language, is now under development. Further information is coming soon! **
+
 ![ClipMenu](./screenshot.jpg)
 
 ## Distribution
