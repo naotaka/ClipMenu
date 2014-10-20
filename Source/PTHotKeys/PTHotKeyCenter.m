@@ -9,7 +9,6 @@
 #import "PTHotKeyCenter.h"
 #import "PTHotKey.h"
 #import "PTKeyCombo.h"
-#import <Carbon/Carbon.h>
 
 @interface PTHotKeyCenter (Private)
 - (PTHotKey*)_hotKeyForCarbonHotKey: (EventHotKeyRef)carbonHotKey;
@@ -47,73 +46,88 @@ static PTHotKeyCenter *_sharedHotKeyCenter = nil;
 	return self;
 }
 
-- (void)dealloc
-{
-	[mHotKeys release];
-	[super dealloc];
-}
 
 #pragma mark -
 
 - (BOOL)registerHotKey: (PTHotKey*)hotKey
 {
-	OSStatus err;
-	EventHotKeyID hotKeyID;
-	EventHotKeyRef carbonHotKey;
+    if ( mIsPaused == NO )
+    {
+        OSStatus err;
+        EventHotKeyID hotKeyID;
+        EventHotKeyRef carbonHotKey;
 
-	if( [[self allHotKeys] containsObject: hotKey] == YES )
-		[self unregisterHotKey: hotKey];
+        if( [[self allHotKeys] containsObject: hotKey] == YES )
+            [self unregisterHotKey: hotKey];
 
-	if( [[hotKey keyCombo] isValidHotKeyCombo] == NO )
-		return YES;
+        if( [[hotKey keyCombo] isValidHotKeyCombo] == NO )
+            return YES;
 
-	hotKeyID.signature = 'PTHk';
-	hotKeyID.id = ++mHotKeyCount;
+        hotKeyID.signature = 'PTHk';
+        hotKeyID.id = ++mHotKeyCount;
 
-	err = RegisterEventHotKey(  (SInt32)[[hotKey keyCombo] keyCode],
-								(UInt32)[[hotKey keyCombo] modifiers],
-								hotKeyID,
-								GetEventDispatcherTarget(),
-								0,
-								&carbonHotKey );
+        err = RegisterEventHotKey(  (SInt32)[[hotKey keyCombo] keyCode],
+                                    (UInt32)[[hotKey keyCombo] modifiers],
+                                    hotKeyID,
+                                    GetEventDispatcherTarget(),
+                                    0,
+                                    &carbonHotKey );
 
-	if( err )
-		return NO;
+        if( err )
+            return NO;
 
-	[hotKey setCarbonHotKeyID:hotKeyID.id];
-	[hotKey setCarbonEventHotKeyRef:carbonHotKey];
+        [hotKey setCarbonHotKeyID:hotKeyID.id];
+        [hotKey setCarbonEventHotKeyRef:carbonHotKey];
 
-	if( hotKey )
-		[mHotKeys setObject: hotKey forKey: [NSNumber numberWithInteger:hotKeyID.id]];
+        if( hotKey )
+            [mHotKeys setObject: hotKey forKey: [NSNumber numberWithInteger:hotKeyID.id]];
 
-	[self _updateEventHandler];
+        [self _updateEventHandler];
+    }
+    else
+    {
+        EventHotKeyID hotKeyID = {'PTHk', ++mHotKeyCount};
+        [hotKey setCarbonHotKeyID:hotKeyID.id];
 
-	return YES;
+        if( hotKey )
+            [mHotKeys setObject: hotKey forKey: [NSNumber numberWithInteger:hotKeyID.id]];
+    }
+    return YES;
 }
 
 - (void)unregisterHotKey: (PTHotKey*)hotKey
 {
-	EventHotKeyRef carbonHotKey;
+    if ( mIsPaused == NO )
+    {
+        EventHotKeyRef carbonHotKey;
 
-	if( [[self allHotKeys] containsObject: hotKey] == NO )
-		return;
+        if( [[self allHotKeys] containsObject: hotKey] == NO )
+            return;
 
-	carbonHotKey = [hotKey carbonEventHotKeyRef];
+        carbonHotKey = [hotKey carbonEventHotKeyRef];
 
-	if( carbonHotKey )
-	{
-		UnregisterEventHotKey( carbonHotKey );
-		//Watch as we ignore 'err':
+        if( carbonHotKey )
+        {
+            UnregisterEventHotKey( carbonHotKey );
+            //Watch as we ignore 'err':
 
-		[mHotKeys removeObjectForKey: [NSNumber numberWithInteger:[hotKey carbonHotKeyID]]];
+            [mHotKeys removeObjectForKey: [NSNumber numberWithInteger:[hotKey carbonHotKeyID]]];
 
-		[hotKey setCarbonHotKeyID:0];
-		[hotKey setCarbonEventHotKeyRef:NULL];
+            [hotKey setCarbonHotKeyID:0];
+            [hotKey setCarbonEventHotKeyRef:NULL];
 
-		[self _updateEventHandler];
+            [self _updateEventHandler];
 
-		//See that? Completely ignored
-	}
+            //See that? Completely ignored
+        }
+    }
+    else
+    {
+        [mHotKeys removeObjectForKey: [NSNumber numberWithInteger:[hotKey carbonHotKeyID]]];
+
+        [hotKey setCarbonHotKeyID:0];
+        [hotKey setCarbonEventHotKeyRef:NULL];
+    }
 }
 
 - (NSArray*)allHotKeys
@@ -170,7 +184,7 @@ static PTHotKeyCenter *_sharedHotKeyCenter = nil;
 
 		InstallEventHandler( GetEventDispatcherTarget(),
 							 (EventHandlerProcPtr)hotKeyEventHandler,
-							 2, eventSpec, nil, nil);
+							 2, eventSpec, nil, &mEventHandler);
 
 		mEventHandlerInstalled = YES;
 	}
@@ -183,6 +197,7 @@ static PTHotKeyCenter *_sharedHotKeyCenter = nil;
 
 - (void)_hotKeyUp: (PTHotKey*)hotKey
 {
+    [hotKey uninvoke];
 }
 
 - (void)sendEvent: (NSEvent*)event
@@ -259,9 +274,59 @@ static PTHotKeyCenter *_sharedHotKeyCenter = nil;
 	return noErr;
 }
 
+- (void)pause
+{
+    if ( mIsPaused )
+        return;
+
+    mIsPaused = YES;
+    for (NSNumber *hotKeyID in mHotKeys)
+    {
+        PTHotKey *hotKey = [mHotKeys objectForKey:hotKeyID];
+        EventHotKeyRef carbonHotKey = [hotKey carbonEventHotKeyRef];
+        UnregisterEventHotKey( carbonHotKey );
+        [hotKey setCarbonEventHotKeyRef:NULL];
+    }
+    if (mEventHandler != NULL)
+    {
+        RemoveEventHandler(mEventHandler);
+        mEventHandler = NULL;
+        mEventHandlerInstalled = NO;
+    }
+}
+
+- (void)resume
+{
+    if ( mIsPaused == NO)
+        return;
+
+    mIsPaused = NO;
+    for (NSNumber *hotKeyIDNumber in mHotKeys)
+    {
+        PTHotKey *hotKey = [mHotKeys objectForKey:hotKeyIDNumber];
+        EventHotKeyRef carbonHotKey = NULL;
+        EventHotKeyID hotKeyID;
+        hotKeyID.signature = 'PTHk';
+        hotKeyID.id = [hotKey carbonHotKeyID];
+        RegisterEventHotKey(  (SInt32)[[hotKey keyCombo] keyCode],
+                              (UInt32)[[hotKey keyCombo] modifiers],
+                              hotKeyID,
+                              GetEventDispatcherTarget(),
+                              0,
+                              &carbonHotKey );
+        [hotKey setCarbonEventHotKeyRef:carbonHotKey];
+    }
+    [self _updateEventHandler];
+}
+
+- (BOOL)isPaused
+{
+    return mIsPaused;
+}
+
 static OSStatus hotKeyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent, void* refCon )
 {
-	return [[PTHotKeyCenter sharedCenter] sendCarbonEvent: inEvent];
+    return [[PTHotKeyCenter sharedCenter] sendCarbonEvent: inEvent];
 }
 
 @end

@@ -97,7 +97,7 @@ NSString *const CMPreferencePanelWillCloseNotification = @"CMPreferencePanelWill
 
 @interface PrefsWindowController ()
 - (void)_prepareHotKeys;
-- (void)_changeHotKeyByShortcutRecorder:(SRRecorderControl *)aRecorder withKeyCombo:(KeyCombo)keyCombo;
+- (void)_changeHotKeyByShortcutRecorder:(SRRecorderControl *)aRecorder withKeyCombo:(PTKeyCombo *)keyCombo;
 - (void)_prepareFontSizePopUpMenuItems;
 - (NSArray *)_actionsFromNodes:(NSArray *)nodes;
 - (void)_prepareModifiersPopUpMenuItems;
@@ -193,6 +193,8 @@ BOOL sameBehaviors(id a, id b)
 	NSWindow *window = [self window];
 	[window setDelegate:self];
 	[window setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
+    
+    
 }
 
 #pragma mark -
@@ -317,7 +319,7 @@ BOOL sameBehaviors(id a, id b)
 //	return NO;
 //}
 
-- (void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo
+- (void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(PTKeyCombo *)newKeyCombo
 {
 //	NSLog(@"aRecorder: %@", aRecorder);
 	
@@ -555,36 +557,53 @@ BOOL sameBehaviors(id a, id b)
 
 - (void)_prepareHotKeys
 {
+    
+    
 	NSMutableArray *recorders = [NSMutableArray arrayWithObjects:
 								 shortcutRecorder, historyShortCutRecorder, snippetsShortcutRecorder,
 								 nil];
 	[self setShortcutRecorders:recorders];
 	
 	NSDictionary *hotKeyMap = [CMUtilities hotKeyMap];
+    
+    NSUserDefaultsController *defaults = [NSUserDefaultsController sharedUserDefaultsController];
+    
 	NSDictionary *hotKeyCombos = [[NSUserDefaults standardUserDefaults] objectForKey:CMPrefHotKeysKey];
 	for (NSString *identifier in hotKeyCombos) {
 //		NSLog(@"identifier: %@", identifier);
 		id keyComboPlist = [hotKeyCombos objectForKey:identifier];
 //		NSLog(@"keyComboPlist: %@", keyComboPlist);
 		
-		KeyCombo keyCombo;
-		keyCombo.code = [[keyComboPlist objectForKey:@"keyCode"] unsignedIntValue];
-		keyCombo.flags = [shortcutRecorder carbonToCocoaFlags:[[keyComboPlist objectForKey:@"modifiers"] unsignedIntValue]];
+
+        // new
+        //----------------------        
+        // create a PTKeyCombo instance
+        PTKeyCombo *combo = [[PTKeyCombo alloc] initWithKeyCode:[[keyComboPlist objectForKey:@"keyCode"] unsignedIntValue] modifiers:[[keyComboPlist objectForKey:@"modifiers"] unsignedIntValue]];
+
+        // old
+        //----------------------
+        // KeyCombo keyCombo;
+        // keyCombo.code = [[keyComboPlist objectForKey:@"keyCode"] unsignedIntValue];
+        // keyCombo.flags = [shortcutRecorder carbonToCocoaFlags:[[keyComboPlist objectForKey:@"modifiers"] unsignedIntValue]];
+
 		
 		NSUInteger index = [[[hotKeyMap objectForKey:identifier] objectForKey:kIndex] 
 							unsignedIntegerValue];		
 		SRRecorderControl *recorder = [recorders objectAtIndex:index];
-		[recorder setKeyCombo:keyCombo];		
-		[recorder setAnimates:YES];
+
+        
+        /// TODO
+		/// [recorder setKeyCombo: combo];		
+		/// [recorder setAnimates:YES];
 	}
 }
 
-- (void)_changeHotKeyByShortcutRecorder:(SRRecorderControl *)aRecorder withKeyCombo:(KeyCombo)keyCombo
+- (void)_changeHotKeyByShortcutRecorder:(SRRecorderControl *)aRecorder withKeyCombo:(PTKeyCombo *)keyCombo
 {
 //	NSLog(@"_changeHotKeyByShortcutRecorder: %@", aRecorder);
 
-	PTKeyCombo *newKeyCombo = [PTKeyCombo keyComboWithKeyCode:keyCombo.code
-													modifiers:[aRecorder cocoaToCarbonFlags:keyCombo.flags]];
+	PTKeyCombo *newKeyCombo = [PTKeyCombo keyComboWithKeyCode:keyCombo.keyCode
+													modifiers:[aRecorder cocoaToCarbonFlags:keyCombo.modifiers]];
 	
 	NSString *identifier = nil;
 	if (aRecorder == shortcutRecorder) {
