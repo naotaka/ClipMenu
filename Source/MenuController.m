@@ -1290,7 +1290,9 @@ NSAttributedString *makeAttributedTitle(NSString *title)
 	if (statusIcon == nil) {
 		statusIcon = [NSImage imageNamed:STATUS_MENU_ICON];
 	}
-	[statusIcon setTemplate:YES];
+	if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9) {
+		[statusIcon setTemplate:YES];
+	}
 	
 	NSString *toolTipLabel = [NSString stringWithFormat:@"%@ %@", kApplicationName, self.shortVersion];
 	
