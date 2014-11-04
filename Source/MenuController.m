@@ -1285,19 +1285,12 @@ NSAttributedString *makeAttributedTitle(NSString *title)
 			break;
 	}
 	
-	NSString *pressedStatusMenuIconName = [statusMenuIconName stringByAppendingString:STATUS_MENU_ICON_POSTFIX];
-	
 	NSImage *statusIcon = [NSImage imageNamed:
 						   [statusMenuIconName stringByAppendingString:STATUS_MENU_ICON_FILE_EXTENSION]];
 	if (statusIcon == nil) {
 		statusIcon = [NSImage imageNamed:STATUS_MENU_ICON];
 	}
-	
-	NSImage *statusIconPressed = [NSImage imageNamed:
-								  [pressedStatusMenuIconName stringByAppendingString:STATUS_MENU_ICON_FILE_EXTENSION]];
-	if (statusIconPressed == nil) {
-		statusIconPressed = statusIcon;
-	}
+	[statusIcon setTemplate:YES];
 	
 	NSString *toolTipLabel = [NSString stringWithFormat:@"%@ %@", kApplicationName, self.shortVersion];
 	
@@ -1305,7 +1298,6 @@ NSAttributedString *makeAttributedTitle(NSString *title)
 	
 	statusItem = [[statusBar statusItemWithLength:NSVariableStatusItemLength] retain];
 	[statusItem setImage:statusIcon];
-	[statusItem setAlternateImage:statusIconPressed];
 	[statusItem setHighlightMode:YES];
 	[statusItem setToolTip:toolTipLabel];
 	
