@@ -1301,9 +1301,9 @@ NSAttributedString *makeAttributedTitle(NSString *title)
 	statusItem = [[statusBar statusItemWithLength:NSVariableStatusItemLength] retain];
 	[statusItem setImage:statusIcon];
 	if (!mayHaveDarkMenuBar) { // set highlighted state icon for < 10.10
-		NSImage *statusIconPressed = [NSImage imageNamed:
-				[pressedStatusMenuIconName stringByAppendingString:STATUS_MENU_ICON_FILE_EXTENSION]]
-			?:	 statusIcon; // fallback icon
+		NSString *pressedStatusMenuIconName = [statusMenuIconName stringByAppendingFormat:@"%@%@",
+							STATUS_MENU_ICON_POSTFIX, STATUS_MENU_ICON_FILE_EXTENSION];
+		NSImage *statusIconPressed = [NSImage imageNamed:pressedStatusMenuIconName] ?: statusIcon; // fallback icon
 		[statusItem setAlternateImage:statusIconPressed];
 	}
 	[statusItem setHighlightMode:YES];
