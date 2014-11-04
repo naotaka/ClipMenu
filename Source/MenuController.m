@@ -1286,11 +1286,11 @@ NSAttributedString *makeAttributedTitle(NSString *title)
 	}
 	
 	NSImage *statusIcon = [NSImage imageNamed:
-						   [statusMenuIconName stringByAppendingString:STATUS_MENU_ICON_FILE_EXTENSION]];
-	if (statusIcon == nil) {
-		statusIcon = [NSImage imageNamed:STATUS_MENU_ICON];
-	}
-	if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9) {
+			 [statusMenuIconName stringByAppendingString:STATUS_MENU_ICON_FILE_EXTENSION]]
+		 ?:      [NSImage imageNamed:STATUS_MENU_ICON]; // fallback icon
+
+	const BOOL mayHaveDarkMenuBar = (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_9); // 10.10+
+	if (mayHaveDarkMenuBar) {
 		[statusIcon setTemplate:YES];
 	}
 	
@@ -1300,6 +1300,12 @@ NSAttributedString *makeAttributedTitle(NSString *title)
 	
 	statusItem = [[statusBar statusItemWithLength:NSVariableStatusItemLength] retain];
 	[statusItem setImage:statusIcon];
+	if (!mayHaveDarkMenuBar) { // set highlighted state icon for < 10.10
+		NSImage *statusIconPressed = [NSImage imageNamed:
+				[pressedStatusMenuIconName stringByAppendingString:STATUS_MENU_ICON_FILE_EXTENSION]]
+			?:	 statusIcon; // fallback icon
+		[statusItem setAlternateImage:statusIconPressed];
+	}
 	[statusItem setHighlightMode:YES];
 	[statusItem setToolTip:toolTipLabel];
 	
