@@ -44,9 +44,9 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>http://feeds.feedburner.com/clipmenu-appcast</string>
+	<string>https://feeds.feedburner.com/clipmenu-appcast</string>
 	<key>SUPreReleaseFeedURL</key>
-	<string>http://feeds.feedburner.com/clipmenu-pre-appcast</string>
+	<string>https://feeds.feedburner.com/clipmenu-pre-appcast</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 </dict>
