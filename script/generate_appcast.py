@@ -51,7 +51,7 @@ def generate_sparkle_rss(d, params):
                 sparkle_release_note_link = d['sparkle_release_note_link'],
                 pubDate = jst_to_gmt(params['last_modified']),
                 enclosure = SparkleEnclosure(
-                    url = 'http://dl.dropbox.com/u/1140644/clipmenu/%s' % params['archive_name'],
+                    url = 'https://dl.dropbox.com/u/1140644/clipmenu/%s' % params['archive_name'],
                     length = params['length'],
                     type = 'application/octet-stream',
                     sparkle_version = '%s' % params['version'],
@@ -88,7 +88,7 @@ RELEASE_NOTE_JA_HTML = 'release_note_ja.html'
 PRE_RELEASE_NOTE_HTML = 'pre_release_note.html'
 PRE_RELEASE_NOTE_JA_HTML = 'pre_release_note_ja.html'
 OUTPUT_DIR = '/Users/naotaka/Sites/sparkle/'
-PUBLIC_URL = 'http://dl.dropbox.com/u/1140644/clipmenu/'
+PUBLIC_URL = 'https://dl.dropbox.com/u/1140644/clipmenu/'
 
 version = None
 
@@ -105,7 +105,7 @@ en = {
         'link' : 'http://www.clipmenu.com/',
         'description' : 'Most recent changes with links to updates.',
         'language' : 'en',
-        'sparkle_release_note_link': 'http://dl.dropbox.com/u/1140644/clipmenu/release_note.html',
+        'sparkle_release_note_link': 'https://dl.dropbox.com/u/1140644/clipmenu/release_note.html',
         }
 ja = {
         'filename' : 'appcast_ja',
@@ -113,7 +113,7 @@ ja = {
         'link' : 'http://www.clipmenu.com/',
         'description' : u'変更点',
         'language' : 'ja',
-        'sparkle_release_note_link': 'http://dl.dropbox.com/u/1140644/clipmenu/release_note_ja.html',
+        'sparkle_release_note_link': 'https://dl.dropbox.com/u/1140644/clipmenu/release_note_ja.html',
         }
 queue = (en, ja)
 
