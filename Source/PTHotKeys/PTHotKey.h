@@ -18,13 +18,16 @@
 	NSString*		mName;
 	PTKeyCombo*		mKeyCombo;
 	id				mTarget;
+    id              mObject;
 	SEL				mAction;
+    SEL             mKeyUpAction;
 
-	NSUInteger		mCarbonHotKeyID;
+	UInt32		    mCarbonHotKeyID;
 	EventHotKeyRef	mCarbonEventHotKeyRef;
 }
 
 - (id)initWithIdentifier: (id)identifier keyCombo: (PTKeyCombo*)combo;
+- (id)initWithIdentifier: (id)identifier keyCombo: (PTKeyCombo*)combo withObject: (id)object;
 - (id)init;
 
 - (void)setIdentifier: (id)ident;
@@ -38,15 +41,20 @@
 
 - (void)setTarget: (id)target;
 - (id)target;
+- (void)setObject: (id)object;
+- (id)object;
 - (void)setAction: (SEL)action;
 - (SEL)action;
+- (void)setKeyUpAction: (SEL)action;
+- (SEL)keyUpAction;
 
-- (NSUInteger)carbonHotKeyID;
-- (void)setCarbonHotKeyID: (NSUInteger)hotKeyID;
+- (UInt32)carbonHotKeyID;
+- (void)setCarbonHotKeyID: (UInt32)hotKeyID;
 
 - (EventHotKeyRef)carbonEventHotKeyRef;
 - (void)setCarbonEventHotKeyRef:(EventHotKeyRef)hotKeyRef;
 
 - (void)invoke;
+- (void)uninvoke;
 
 @end
