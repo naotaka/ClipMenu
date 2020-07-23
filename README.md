@@ -1,4 +1,5 @@
 ClipMenu
+[![Build Status](https://travis-ci.org/image72/ClipMenu.png)](https://travis-ci.org/image72/ClipMenu)
 ========
 A clipboard manager for Mac OS X.
 
