@@ -1,4 +1,13 @@
+os: osx
+osx_image: xcode11
 language: objective-c
+
+matrix:
+  include:
+  - name: macOS
+    xcode_destination: platform=macOS
+    
+
 before_install:
      - brew update
      - brew install xctool
