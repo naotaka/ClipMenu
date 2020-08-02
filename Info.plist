@@ -33,9 +33,9 @@
 		<key>ppc</key>
 		<string>10.5.0</string>
 		<key>ppc64</key>
-		<string>10.6.0</string>
+		<string>10.15.0</string>
 		<key>x86_64</key>
-		<string>10.6.0</string>
+		<string>10.15.0</string>
 	</dict>
 	<key>LSUIElement</key>
 	<string>1</string>
