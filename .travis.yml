@@ -5,4 +5,4 @@ language: objective-c
 xcode_project: ClipMenu.xcodeproj # path to your xcodeproj folder
 xcode_scheme: ClipMenu
 xcode_destination: platform=macOS
-script: set -o pipefail && xcodebuild -project BlackHole.xcodeproj -scheme BlackHole build | xcpretty
+script: set -o pipefail && xcodebuild -project ClipMenu.xcodeproj -scheme ClipMenu build | xcpretty
