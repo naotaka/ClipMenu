@@ -1,12 +1,8 @@
-os: osx
-osx_image: xcode12
-language: objective-c
 
-matrix:
-  include:
-  - name: macOS
-    xcode_destination: platform=macOS
+osx_image: xcode12
 
 language: objective-c
 xcode_project: ClipMenu.xcodeproj # path to your xcodeproj folder
+xcode_scheme: ClipMenu
 xcode_destination: platform=macOS
+script: set -o pipefail && xcodebuild -project BlackHole.xcodeproj -scheme BlackHole build | xcpretty
