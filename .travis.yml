@@ -1,14 +1,12 @@
 os: osx
-osx_image: xcode11
+osx_image: xcode12
 language: objective-c
 
 matrix:
   include:
   - name: macOS
     xcode_destination: platform=macOS
-    
 
-before_install:
-     - brew update
-     - brew install xctool
-script: xctool -project ClipMenu.xcodeproj -scheme 
+language: objective-c
+xcode_project: ClipMenu.xcodeproj # path to your xcodeproj folder
+xcode_destination: platform=macOS
