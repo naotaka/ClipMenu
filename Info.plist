@@ -25,7 +25,7 @@
 	<key>CFBundleVersion</key>
 	<string>0.4.4a13</string>
 	<key>LSMinimumSystemVersion</key>
-	<string>10.5.0</string>
+	<string>10.12.0</string>
 	<key>LSMinimumSystemVersionByArchitecture</key>
 	<dict>
 		<key>i386</key>
