@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!--
+        ClipMenu is NOT sandboxed.
+        CGEvent-based paste (kCGSessionEventTap) requires Accessibility permission,
+        which is incompatible with the App Sandbox. The user grants this once at
+        runtime via the standard system prompt in AppDelegate.
+    -->
+
+    <!-- Required for CGEvent Cmd+V synthesis -->
+    <key>com.apple.security.automation.apple-events</key>
+    <true/>
+</dict>
+</plist>

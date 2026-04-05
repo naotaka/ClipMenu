@@ -1,0 +1,74 @@
+name: ClipMenu
+
+options:
+  bundleIdPrefix: com.naotaka
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+  createIntermediateGroups: true
+
+packages:
+  KeyboardShortcuts:
+    url: https://github.com/sindresorhus/KeyboardShortcuts
+    from: "2.0.0"
+
+targets:
+  ClipMenu:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+
+    sources:
+      - path: Sources
+      - path: Assets.xcassets
+        buildPhase: resources
+      - path: Resources/scripts
+        buildPhase: resources
+        type: folder
+
+    entitlements:
+      path: ClipMenu.entitlements
+      properties:
+        com.apple.security.automation.apple-events: true
+
+    dependencies:
+      - package: KeyboardShortcuts
+
+    settings:
+      base:
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        PRODUCT_BUNDLE_IDENTIFIER: app.eetr.ClipMenu
+        PRODUCT_NAME: ClipMenu
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS: YES
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: WTWBLR82TY
+        ENABLE_HARDENED_RUNTIME: YES
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: ClipMenu
+        INFOPLIST_KEY_CFBundleIconName: AppIcon
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
+        INFOPLIST_KEY_LSUIElement: YES
+        INFOPLIST_KEY_NSPrincipalClass: NSApplication
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+      configs:
+        Debug:
+          DEBUG_INFORMATION_FORMAT: dwarf
+          SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+        Release:
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+          COPY_PHASE_STRIP: NO
+
+fileGroups:
+  - project.yml
+  - ClipMenu.entitlements
+  - Assets.xcassets
+  - Resources
+  - doc
+  - README.md
+  - LICENSE
