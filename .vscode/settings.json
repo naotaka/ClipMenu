@@ -1,0 +1,7 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "xcodebuild": true,
+        "defaults": true,
+        "true": true
+    }
+}

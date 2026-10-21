@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xcodebuild build:*)",
+      "Bash(bash Resources/scripts/run_preview_ax_smoke.sh)",
+      "Bash(xcodebuild -scheme ClipMenu -configuration Debug build)",
+      "Bash(xcodebuild -scheme ClipMenu -configuration Debug -derivedDataPath /tmp/clipmenu-build build)"
+    ]
+  }
+}

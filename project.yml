@@ -1,0 +1,258 @@
+name: ClipMenu
+
+options:
+  bundleIdPrefix: com.naotaka
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+  createIntermediateGroups: true
+
+packages:
+  KeyboardShortcuts:
+    url: https://github.com/sindresorhus/KeyboardShortcuts
+    exactVersion: "2.4.0"
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle
+    exactVersion: "2.10.0"
+
+targets:
+  # Direct / GitHub distribution — includes Sparkle for in-app updates.
+  ClipMenu:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+
+    # Custom Sparkle keys are not emitted by Xcode's generated Info.plist
+    # build settings. Keep them in an explicit input plist, with Boolean types.
+    info:
+      path: Resources/DirectDistributionInfo.plist
+      properties:
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        SUFeedURL: https://github.com/Frazer/clipM/releases/latest/download/appcast.xml
+        SUEnableAutomaticChecks: true
+        SURequireSignedFeed: true
+        SUVerifyUpdateBeforeExtraction: true
+        SUPublicEDKey: k+dUStN0vPsQtPhR3HzzGG2AvWgN3cofmk23IkSFE8g=
+        NSDesktopFolderUsageDescription: "clip'M needs this to import a Snippets.xml file you choose from the Desktop."
+        NSDownloadsFolderUsageDescription: "clip'M needs this to import a Snippets.xml file you choose from Downloads."
+
+    sources:
+      - path: Sources
+      - path: Assets.xcassets
+        buildPhase: resources
+      - path: Resources/scripts
+        buildPhase: resources
+        type: folder
+
+    entitlements:
+      path: ClipMenu.entitlements
+      properties: {}
+
+    dependencies:
+      - package: KeyboardShortcuts
+      - package: Sparkle
+
+    settings:
+      base:
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        PRODUCT_BUNDLE_IDENTIFIER: org.unitedvisions.ClipM
+        PRODUCT_NAME: clipM
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS: YES
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 97988GNC59
+        ENABLE_HARDENED_RUNTIME: YES
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: "clip'M"
+        INFOPLIST_KEY_CFBundleName: "clip'M"
+        INFOPLIST_KEY_CFBundleIconName: AppIcon
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
+        INFOPLIST_KEY_LSUIElement: YES
+        INFOPLIST_KEY_NSPrincipalClass: NSApplication
+        INFOPLIST_KEY_NSDesktopFolderUsageDescription: "clip'M needs this to import a Snippets.xml file you choose from the Desktop."
+        INFOPLIST_KEY_NSDownloadsFolderUsageDescription: "clip'M needs this to import a Snippets.xml file you choose from Downloads."
+        MARKETING_VERSION: "1.0.6"
+        CURRENT_PROJECT_VERSION: "7"
+      configs:
+        Debug:
+          # Stable identity so the Accessibility (TCC) grant survives rebuilds;
+          # ad-hoc signatures change every build and silently revoke it.
+          CODE_SIGN_IDENTITY: "Apple Development"
+          CODE_SIGN_STYLE: Manual
+          DEVELOPMENT_TEAM: 97988GNC59
+          PROVISIONING_PROFILE_SPECIFIER: ""
+          DEBUG_INFORMATION_FORMAT: dwarf
+          SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: "DEBUG DIRECT_DISTRIBUTION"
+        Release:
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+          COPY_PHASE_STRIP: NO
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DIRECT_DISTRIBUTION
+          # Direct downloads must be Developer ID signed (+ notarized) for Gatekeeper.
+          CODE_SIGN_IDENTITY: "Developer ID Application"
+          CODE_SIGN_STYLE: Manual
+          DEVELOPMENT_TEAM: 97988GNC59
+          OTHER_CODE_SIGN_FLAGS: "--timestamp"
+          # get-task-allow is for the debugger. Notarization rejects it.
+          CODE_SIGN_INJECT_BASE_ENTITLEMENTS: NO
+
+  # Mac App Store distribution — no Sparkle; updates via App Store only.
+  ClipMenuAppStore:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+
+    sources:
+      - path: Sources
+      - path: Assets.xcassets
+        buildPhase: resources
+      - path: Resources/scripts
+        buildPhase: resources
+        type: folder
+
+    entitlements:
+      path: ClipMenuAppStore.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+        com.apple.security.files.user-selected.read-only: true
+
+    dependencies:
+      - package: KeyboardShortcuts
+
+    settings:
+      base:
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        PRODUCT_BUNDLE_IDENTIFIER: org.unitedvisions.ClipM
+        PRODUCT_NAME: clipM
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS: YES
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 97988GNC59
+        ENABLE_HARDENED_RUNTIME: YES
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: "clip'M"
+        INFOPLIST_KEY_CFBundleName: "clip'M"
+        INFOPLIST_KEY_CFBundleIconName: AppIcon
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
+        INFOPLIST_KEY_LSUIElement: YES
+        INFOPLIST_KEY_NSPrincipalClass: NSApplication
+        INFOPLIST_KEY_NSDesktopFolderUsageDescription: "clip'M needs this to import a Snippets.xml file you choose from the Desktop."
+        INFOPLIST_KEY_NSDownloadsFolderUsageDescription: "clip'M needs this to import a Snippets.xml file you choose from Downloads."
+        MARKETING_VERSION: "1.0.6"
+        CURRENT_PROJECT_VERSION: "7"
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: APP_STORE
+      configs:
+        Debug:
+          DEBUG_INFORMATION_FORMAT: dwarf
+          SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: "DEBUG APP_STORE"
+          CODE_SIGN_STYLE: Automatic
+          CODE_SIGN_IDENTITY: "Apple Development"
+          DEVELOPMENT_TEAM: 97988GNC59
+        Release:
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+          COPY_PHASE_STRIP: NO
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: APP_STORE
+          CODE_SIGN_STYLE: Automatic
+          DEVELOPMENT_TEAM: 97988GNC59
+
+  ClipMenuTest:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+
+    sources:
+      - path: Sources
+      - path: Assets.xcassets
+        buildPhase: resources
+      - path: Resources/scripts
+        buildPhase: resources
+        type: folder
+
+    entitlements:
+      path: ClipMenu.entitlements
+      properties: {}
+
+    dependencies:
+      - package: KeyboardShortcuts
+
+    settings:
+      base:
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        PRODUCT_BUNDLE_IDENTIFIER: org.unitedvisions.ClipMenuTest
+        PRODUCT_NAME: ClipMenuTest
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS: YES
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 97988GNC59
+        ENABLE_HARDENED_RUNTIME: YES
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: ClipMenuTest
+        INFOPLIST_KEY_CFBundleIconName: AppIcon
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
+        INFOPLIST_KEY_LSUIElement: YES
+        INFOPLIST_KEY_NSPrincipalClass: NSApplication
+        MARKETING_VERSION: "1.0.6"
+        CURRENT_PROJECT_VERSION: "7"
+      configs:
+        Debug:
+          CODE_SIGN_IDENTITY: "-"
+          CODE_SIGN_STYLE: Manual
+          DEVELOPMENT_TEAM: ""
+          PROVISIONING_PROFILE_SPECIFIER: ""
+          DEBUG_INFORMATION_FORMAT: dwarf
+          SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+        Release:
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+          COPY_PHASE_STRIP: NO
+
+  ClipMenuUITests:
+    type: bundle.ui-testing
+    platform: macOS
+    deploymentTarget: "14.0"
+
+    sources:
+      - path: UITests
+
+    dependencies:
+      - target: ClipMenuTest
+
+    settings:
+      base:
+        TEST_TARGET_NAME: ClipMenuTest
+        PRODUCT_BUNDLE_IDENTIFIER: org.unitedvisions.ClipMenuUITests
+        GENERATE_INFOPLIST_FILE: YES
+
+schemes:
+  ClipMenu:
+    build:
+      targets:
+        ClipMenu: all
+    test:
+      targets:
+        - ClipMenuUITests
+
+  ClipMenuAppStore:
+    build:
+      targets:
+        ClipMenuAppStore: all
+
+fileGroups:
+  - project.yml
+  - ClipMenu.entitlements
+  - ClipMenuAppStore.entitlements
+  - Assets.xcassets
+  - Resources
+  - doc
+  - README.md
+  - LICENSE

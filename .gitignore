@@ -13,9 +13,27 @@ xcuserdata
 profile
 *.moved-aside
 DerivedData
+.derivedData
 .idea/
 *.hmap
 *.xccheckout
 
-#CocoaPods
+# CocoaPods
 Pods
+
+# Build artifacts
+.build/
+/build/
+
+# Sparkle / release secrets & outputs (never commit private keys or binaries)
+secrets/*
+!secrets/README.md
+release/
+# Local build staging — never commit .app trees; publish via GitHub Releases
+dist/
+
+# Personal notes, kept on disk only
+thingsToDo.md
+*.p12
+sparkle_eddsa_private.key
+

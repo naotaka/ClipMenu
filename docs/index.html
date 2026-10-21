@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>clip'M — Clipboard manager for Apple silicon Macs</title>
+  <meta name="description"
+    content="clip'M is a fast, easy clipboard manager for M‑series Macs. Search history, filter images, preview clips, and paste from reusable snippets." />
+  <meta property="og:title" content="clip'M" />
+  <meta property="og:description" content="Full-featured copy &amp; paste manager for Apple silicon Macs." />
+  <meta property="og:image" content="images/previews.png" />
+  <meta name="theme-color" content="#dff0ff" />
+  <link rel="icon" href="images/icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #dff0ff;
+      --ink: #1a2d4a;
+      --ink-soft: #4a6280;
+      --paper: #ffffff;
+      --accent: #1e8aff;
+      --accent-warm: #ff8a3d;
+      --sun: #ffe56a;
+      --blush: #ffd0e0;
+      --line: rgba(26, 45, 74, 0.12);
+      --shadow: 0 22px 48px rgba(30, 80, 160, 0.18);
+      --radius: 18px;
+      --max: 1120px;
+      --font-display: "Syne", sans-serif;
+      --font-body: "Figtree", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(900px 560px at 8% -5%, #fff4b8 0%, transparent 55%),
+        radial-gradient(800px 520px at 100% 0%, #ffc9dc 0%, transparent 50%),
+        radial-gradient(900px 600px at 70% 100%, #b8e4ff 0%, transparent 55%),
+        linear-gradient(180deg, #eaf6ff 0%, #dff0ff 40%, #fff6d8 100%);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .wrap {
+      width: min(100% - 2.5rem, var(--max));
+      margin-inline: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* —— Nav —— */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 0 0;
+      gap: 1rem;
+    }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.75rem 1.2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1.5px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #0d74e8;
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.55);
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: #fff;
+    }
+
+    .store-note {
+      margin-top: 0.85rem;
+      max-width: 36rem;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: #5c6b80;
+    }
+
+    .store-note a {
+      color: inherit;
+    }
+
+    /* —— Hero —— */
+    .hero {
+      padding-bottom: 3rem;
+    }
+
+    .hero-copy {
+      padding: 3.5rem 0 2rem;
+      max-width: 38rem;
+    }
+
+    .hero-brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(3.4rem, 9vw, 6.5rem);
+      letter-spacing: -0.05em;
+      line-height: 0.92;
+      margin-bottom: 1.1rem;
+      opacity: 0;
+      animation: rise 0.8s ease forwards 0.05s;
+    }
+
+    .hero-brand span {
+      color: var(--accent-warm);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.45rem, 3.2vw, 2.1rem);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 0.85rem;
+      opacity: 0;
+      animation: rise 0.8s ease forwards 0.18s;
+    }
+
+    .hero-lead {
+      font-size: 1.12rem;
+      color: var(--ink-soft);
+      max-width: 34rem;
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: rise 0.8s ease forwards 0.3s;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      opacity: 0;
+      animation: rise 0.8s ease forwards 0.42s;
+    }
+
+    .hero-visual {
+      margin-top: 1.5rem;
+      position: relative;
+      opacity: 0;
+      animation: rise 1s ease forwards 0.5s;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: auto -6% -20% -6%;
+      height: 55%;
+      background: radial-gradient(ellipse at center, rgba(255, 229, 106, 0.55), transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-visual img,
+    .hero-visual video {
+      width: min(100%, 880px);
+      margin-inline: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      animation: float 7s ease-in-out infinite;
+      display: block;
+    }
+
+    /* —— Sections —— */
+    section.feature {
+      padding: 5.5rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .feature-grid {
+      display: grid;
+      gap: 2.5rem 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 860px) {
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature-grid.reverse .feature-text {
+        order: 2;
+      }
+
+      .feature-grid.reverse .feature-media {
+        order: 1;
+      }
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+    }
+
+    .feature h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.7rem, 3.5vw, 2.45rem);
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 0.9rem;
+    }
+
+    .feature p {
+      color: var(--ink-soft);
+      font-size: 1.08rem;
+      max-width: 34rem;
+    }
+
+    .feature p+p {
+      margin-top: 0.85rem;
+    }
+
+    .kbd {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.86em;
+      padding: 0.12em 0.45em;
+      border-radius: 6px;
+      background: rgba(30, 138, 255, 0.12);
+      border: 1px solid rgba(30, 138, 255, 0.22);
+      color: var(--ink);
+    }
+
+    .feature-media {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .feature-media img {
+      width: auto;
+      max-width: 100%;
+      max-height: min(520px, 70vh);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: transparent;
+    }
+
+    .feature-media.wide img {
+      max-height: none;
+      width: 100%;
+    }
+
+    .feature-media.pair {
+      flex-direction: column;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .feature-media.pair img {
+      max-height: min(380px, 55vh);
+    }
+
+    @media (min-width: 860px) {
+      .feature-grid.search-grid {
+        grid-template-columns: 1fr 1.2fr;
+      }
+    }
+
+    /* —— Actions (text-only) —— */
+    .actions-block {
+      max-width: 40rem;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .actions-block h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.7rem, 3.5vw, 2.45rem);
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 0.9rem;
+    }
+
+    .actions-block p:not(.eyebrow) {
+      color: var(--ink-soft);
+      font-size: 1.08rem;
+    }
+
+    /* —— Silicon strip —— */
+    .silicon {
+      padding: 4.5rem 0 5.5rem;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .silicon h2 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 0.9rem;
+      max-width: 18em;
+      margin-inline: auto;
+    }
+
+    .silicon p {
+      color: var(--ink-soft);
+      font-size: 1.1rem;
+      max-width: 36rem;
+      margin-inline: auto;
+    }
+
+    /* —— Download —— */
+    .download {
+      padding: 0 0 5rem;
+    }
+
+    .download-panel {
+      background: linear-gradient(135deg, #1e8aff 0%, #5eb7ff 48%, #ffb347 100%);
+      color: #fff;
+      border-radius: 28px;
+      padding: clamp(2rem, 5vw, 3.25rem);
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .download-panel::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -40px;
+      bottom: -80px;
+      border-radius: 50%;
+      background: rgba(255, 229, 106, 0.45);
+      pointer-events: none;
+    }
+
+    @media (min-width: 760px) {
+      .download-panel {
+        grid-template-columns: 1.4fr auto;
+      }
+    }
+
+    .download-panel h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .download-panel p {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 36rem;
+      position: relative;
+    }
+
+    .download-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      position: relative;
+    }
+
+    .download .btn-primary {
+      background: #fff;
+      color: #1a2d4a;
+    }
+
+    .download .btn-primary:hover {
+      background: var(--sun);
+    }
+
+    .download .btn-ghost {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.55);
+      color: #fff;
+    }
+
+    .download .store-note {
+      color: rgba(255, 255, 255, 0.72);
+      position: relative;
+    }
+
+    .download .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: #fff;
+    }
+
+    /* —— Closing note —— */
+    .closing {
+      padding: 0 0 4rem;
+    }
+
+    .closing-note {
+      max-width: 38rem;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .closing-note h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 0.9rem;
+    }
+
+    .closing-note p {
+      color: var(--ink-soft);
+      font-size: 1.08rem;
+    }
+
+    .closing-note p + p {
+      margin-top: 0.85rem;
+    }
+
+    .closing-note a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .closing-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* —— Footer —— */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 0 3rem;
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+    }
+
+    footer .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer a {
+      color: var(--ink);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* —— Motion —— */
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal,
+      .hero-brand,
+      .hero h1,
+      .hero-lead,
+      .hero-cta,
+      .hero-visual {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links .hide-sm {
+        display: none;
+      }
+
+      .hero-copy {
+        padding-top: 2.5rem;
+      }
+
+      .feature-media img {
+        max-height: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="#top">
+        <img src="images/icon.png" width="34" height="34" alt="" />
+        clip'M
+      </a>
+      <div class="nav-links">
+        <a class="btn btn-primary" href="#download">Get clip'M</a>
+      </div>
+    </nav>
+  </div>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="hero-brand">clip<span>'</span>M</p>
+        <h1>Your clipboard, finally easy to use.</h1>
+        <p class="hero-lead">
+          A full-featured copy &amp; paste manager built for Apple silicon M chip Macs —
+          search history, preview clips, and paste the right thing in a flash.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://github.com/Frazer/clipM/releases/latest/download/clipM-1.0.6.dmg">Download</a>
+          <a class="btn btn-ghost" href="https://github.com/Frazer/clipM">GitHub</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <video
+          src="images/clipMDemo.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="images/previews.png"
+          aria-label="clip'M demo: clipboard history, search, and previews"
+        ></video>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="feature" id="search">
+      <div class="wrap feature-grid search-grid reveal">
+        <div class="feature-text">
+          <p class="eyebrow">Search</p>
+          <h2>Find any clip the moment you need it.</h2>
+          <p>
+            Press <span class="kbd">/</span> and start typing. clip'M filters your
+            history instantly so you are not scrolling through yesterday’s noise
+            to find the one line you copied an hour ago.
+          </p>
+          <p>
+            Need screenshots only? Hit <span class="kbd">/</span> then <span class="kbd">Tab</span> or click the
+            image button for image-only search — perfect when you remember what
+            it looked like, not what it said.
+          </p>
+        </div>
+        <div class="feature-media pair">
+          <img src="images/search.png" width="880" height="634"
+            alt="clip'M text search filtering clipboard history for the word thank" loading="lazy" />
+          <img src="images/searchImages.png" width="1024" height="696"
+            alt="clip'M image-only search with the image filter active" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="feature" id="snippets">
+      <div class="wrap feature-grid reveal">
+        <div class="feature-text">
+          <p class="eyebrow">Snippets</p>
+          <h2>Keep the things you paste every day one keystroke away.</h2>
+          <p>
+            Organize reusable text into folders — email, phone, addresses, boilerplate —
+            and open them from the same menu you already use for clipboard history.
+          </p>
+          <p>
+            The snippet system is simple enough to set up in a minute, and useful
+            enough that you will wonder how you typed the same reply by hand for so long.
+          </p>
+        </div>
+        <div class="feature-media wide">
+          <img src="images/snippets.png" width="1024" height="343"
+            alt="clip'M snippets folders with a nested list of reusable items like email and phone" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="feature" id="previews">
+      <div class="wrap feature-grid reverse reveal">
+        <div class="feature-text">
+          <p class="eyebrow">Previews</p>
+          <h2>See it before you paste it.</h2>
+          <p>
+            Hover a clip or open a history group and a live preview appears beside
+            the menu. Text, screenshots, and documents show up clearly so you
+            pick the right item the first time.
+          </p>
+          <p>
+            No more pasting the wrong screenshot into a message, then undoing,
+            then hunting again.
+          </p>
+        </div>
+        <div class="feature-media wide">
+          <img src="images/previews.png" width="1774" height="1016"
+            alt="clip'M showing a live preview beside the clipboard history menu" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="feature" id="actions">
+      <div class="wrap actions-block reveal">
+        <p class="eyebrow">Actions</p>
+        <h2>Transform a clip before you paste it.</h2>
+        <p>
+          Built-in actions handle the everyday stuff — put text in uppercase or
+          lowercase, decode a messy URL, and more — right from the action menu.
+          Prefer your own workflows? Write user-programmed actions and plug them
+          into the same menu, so paste does exactly what you need.
+        </p>
+      </div>
+    </section>
+
+    <section class="silicon">
+      <div class="wrap reveal">
+        <h2>The clipboard manager people loved — rebuilt for Apple silicon.</h2>
+        <p>
+          The original <a href="https://www.clipmenu.com">ClipMenu</a> was a favourite for a decade: simple, fast, and
+          always there when you needed it. Here it is ported to run natively on M‑series Macs, with great new features
+          like search, image-only filtering, and live previews layered on top of
+          what made ClipMenu great.
+        </p>
+      </div>
+    </section>
+
+    <section class="download" id="download">
+      <div class="wrap">
+        <div class="download-panel reveal">
+          <div>
+            <h2>Get clip'M for free</h2>
+            <p>
+              Version 1.0.6. Download the latest release, drag it to Applications, and start
+              pasting smarter. clip'M stays quiet in the menu bar instead of using a processor
+              core while you are not using it. The direct download pastes the clip you choose.
+              Open source under the MIT license.
+              Requires macOS 14 (Sonoma) or later.
+            </p>
+          </div>
+          <div class="download-actions">
+            <a class="btn btn-primary" href="https://github.com/Frazer/clipM/releases/latest/download/clipM-1.0.6.dmg">Download DMG</a>
+            <a class="btn btn-ghost" href="https://github.com/Frazer/clipM">Source on GitHub</a>
+          </div>
+          <p class="store-note">Or install the direct download with <code>brew install --cask frazer/clipm/clipm</code>.</p>
+          <p class="store-note">
+            The <a href="https://apps.apple.com/app/id6818600547">Mac App Store</a> version requires a manual ⌘V after you select an item.
+            The direct download uses Accessibility to press ⌘V for you.
+            The App Store does not allow Accessibility features except when they are strictly required for accessibility needs (Guideline 2.4.5).
+          </p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap closing-note reveal">
+        <h2>From United Visions, with care.</h2>
+        <p>
+          clip'M was developed by team members from
+          <a href="https://unitedvisions.org">United Visions</a> — all about
+          empowering you to copy the best ways of being, and paste that
+          awesomeness all over the world.
+        </p>
+        <p>
+          Please enjoy the software. And remember to be careful with the
+          thoughts and feelings you practice every day.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>clip'M — clipboard manager for Apple silicon M chip Macs.</p>
+      <p>
+        <a href="https://unitedvisions.org">unitedvisions.org</a>
+        ·
+        <a href="https://github.com/Frazer/clipM">GitHub</a>
+        ·
+        <a href="privacy.html">Privacy</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+      );
+      reveals.forEach((el) => io.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add("in"));
+    }
+  </script>
+</body>
+
+</html>

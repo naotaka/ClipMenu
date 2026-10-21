@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — clip'M</title>
+  <meta name="description" content="Privacy policy for clip'M, the clipboard manager from United Visions." />
+  <link rel="icon" href="images/icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a2d4a;
+      --ink-soft: #4a6280;
+      --max: 720px;
+      --font-display: "Syne", sans-serif;
+      --font-body: "Figtree", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(900px 560px at 8% -5%, #fff4b8 0%, transparent 55%),
+        radial-gradient(800px 520px at 100% 0%, #ffc9dc 0%, transparent 50%),
+        linear-gradient(180deg, #eaf6ff 0%, #dff0ff 40%, #fff6d8 100%);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(100% - 2.5rem, var(--max));
+      margin-inline: auto;
+      padding: 2.5rem 0 4rem;
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      letter-spacing: -0.03em;
+      margin: 1.5rem 0 0.4rem;
+    }
+
+    .updated { color: var(--ink-soft); margin-bottom: 1.75rem; }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      margin: 1.75rem 0 0.4rem;
+    }
+
+    p, li { margin-bottom: 0.75rem; }
+
+    ul { padding-left: 1.2rem; }
+
+    footer {
+      margin-top: 2.5rem;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <a class="brand" href="./">clip'M</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">14 October 2026</p>
+
+    <p>
+      clip'M is a clipboard manager for Mac, developed by
+      <a href="https://unitedvisions.org">United Visions</a>.
+      What you copy stays on your Mac. We do not run an account system, and we
+      do not collect your clipboard.
+    </p>
+
+    <h2>What stays on your Mac</h2>
+    <p>
+      clip'M saves clipboard history, snippets, and action scripts in
+      <code>~/Library/Application Support/ClipM</code> on that computer.
+      History can include text, links, file names, and images you copied.
+      The App Store version keeps this folder inside its macOS app container.
+      Preferences, such as keyboard shortcuts, stay on the Mac as well.
+    </p>
+    <p>
+      The contents of saved clips and snippets are encrypted on this Mac
+      before they are written down. That covers copied text, rich text,
+      PDFs, file names, links, and images, plus snippet titles and text.
+      Encryption is AES-GCM. Each Mac gets its own random keys, kept in
+      the Keychain, available while that Mac is unlocked, and not synced
+      to other devices. History and snippets use different keys.
+      The times a clip was saved or last used are stored so the list can
+      be ordered, and those times are not encrypted. Preferences and
+      action scripts are stored on the Mac and are not encrypted.
+      The clipboard macOS is holding right now is the system clipboard;
+      clip'M encrypts the copy it saves into its own history.
+    </p>
+    <p>
+      That information is not sent to United Visions. We do not sell it, and we
+      do not use it for advertising or tracking.
+    </p>
+
+    <h2>Permissions</h2>
+    <p>
+      The direct download asks for Accessibility so it can paste the clip you
+      choose into the app you are using. That permission is used for paste,
+      not to watch what you do in other apps. The Mac App Store version does
+      not request Accessibility. After you select an item, you paste it
+      yourself with ⌘V.
+    </p>
+
+    <h2>Update checks</h2>
+    <p>
+      If you installed clip'M from the Mac App Store and check for an update,
+      the app asks Apple whether a newer version is listed. That request
+      includes the app’s bundle identifier. It does not include your clipboard.
+    </p>
+    <p>
+      If you installed the direct download, clip'M uses Sparkle to look for a
+      new release on GitHub. That check does not include your clipboard.
+    </p>
+
+    <h2>Deleting your information</h2>
+    <p>
+      Clear History removes saved clipboard history from the live database,
+      clears the current clipboard, and retires the key that encrypted that
+      history. It keeps your snippets and actions.
+      Copies in backups, exports, or other apps are not removed.
+      Encryption does not hide saved clips from someone who can use this
+      Mac while it is unlocked.
+      To remove the app's stored data, quit it and delete its ClipM application
+      support folder (inside its app container for the App Store version).
+      Removing the app does not by itself remove that folder.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about this policy can go to
+      <a href="https://github.com/Frazer/clipM">github.com/Frazer/clipM</a>
+      or <a href="https://unitedvisions.org">unitedvisions.org</a>.
+    </p>
+
+    <footer>
+      <a href="./">Back to clip'M</a>
+    </footer>
+  </main>
+</body>
+
+</html>
